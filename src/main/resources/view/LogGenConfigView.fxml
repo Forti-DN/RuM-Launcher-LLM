@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root gridLinesVisible="true" prefHeight="803.0" prefWidth="1243.0" type="GridPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane>
+         <children>
+            <AnchorPane layoutX="11.0" layoutY="12.0" prefHeight="249.0" prefWidth="500.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="390.0">
+               <children>
+                  <Label layoutX="17.0" layoutY="112.0" text="Min Trace Length" AnchorPane.leftAnchor="15.0" />
+                  <TextField fx:id="minTraceLength" layoutX="231.0" layoutY="106.0" prefWidth="228.0" text="0" AnchorPane.leftAnchor="231.0" />
+                  <Label layoutX="14.0" layoutY="204.0" text="Number of Traces" AnchorPane.leftAnchor="15.0" />
+                  <Label layoutX="16.0" layoutY="161.0" text="Max Trace Length" AnchorPane.leftAnchor="15.0" />
+                  <TextField fx:id="amountOfTraces" layoutX="206.0" layoutY="198.0" prefWidth="228.0" text="0" AnchorPane.leftAnchor="231.0" />
+                  <TextField fx:id="maxTraceLength" layoutX="206.0" layoutY="155.0" prefWidth="228.0" text="0" AnchorPane.leftAnchor="231.0" />
+                  <Label layoutX="17.0" layoutY="62.0" text="Output Log" AnchorPane.leftAnchor="15.0" />
+                  <TextField fx:id="modelName" layoutX="200.0" layoutY="55.0" prefWidth="222.0" AnchorPane.leftAnchor="200.0" />
+                  <Button fx:id="modelFileSelect" layoutX="404.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectFileToSave" prefWidth="72.0" text="Select" AnchorPane.leftAnchor="424.0" />
+                  <Button fx:id="uMinT" layoutX="460.0" layoutY="106.0" mnemonicParsing="false" onAction="#upMinTrace" text="+" AnchorPane.leftAnchor="460.0" />
+                  <Button fx:id="dMinT" layoutX="460.0" layoutY="105.0" mnemonicParsing="false" onAction="#downMinTrace" text="-" AnchorPane.leftAnchor="200.0" />
+                  <Button fx:id="uMaxT" layoutX="460.0" layoutY="155.0" mnemonicParsing="false" onAction="#upMaxTrace" text="+" AnchorPane.leftAnchor="460.0" />
+                  <Button fx:id="uTA" layoutX="460.0" layoutY="197.0" mnemonicParsing="false" onAction="#upTraceAmount" text="+" AnchorPane.leftAnchor="460.0" />
+                  <Button fx:id="dMaxT" layoutX="460.0" layoutY="154.0" mnemonicParsing="false" onAction="#downMaxTrace" text="-" AnchorPane.leftAnchor="200.0" />
+                  <Button fx:id="dTA" layoutX="460.0" layoutY="197.0" mnemonicParsing="false" onAction="#downTraceAmount" text="-" AnchorPane.leftAnchor="200.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="alloyConfig" layoutX="29.0" layoutY="297.0" prefHeight="117.0" prefWidth="386.0" AnchorPane.leftAnchor="26.0">
+               <children>
+                  <RadioButton fx:id="evenTrue" layoutX="217.0" layoutY="89.0" mnemonicParsing="false" text="True" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="100.0" />
+                  <RadioButton fx:id="evenFalse" layoutX="295.0" layoutY="89.0" mnemonicParsing="false" selected="true" text="False" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutY="89.0" text="Even Length Distribution" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                     <tooltip>
+                        <Tooltip text="Length of traces between min and max will be evenly distributed between min and max." />
+                     </tooltip>
+                  </Label>
+                  <RadioButton fx:id="vacTrue" layoutX="217.0" layoutY="1.0" mnemonicParsing="false" text="True" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0" />
+                  <RadioButton fx:id="vacFalse" layoutX="234.0" mnemonicParsing="false" selected="true" text="False" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label layoutY="43.0" text="Generate Negative Traces" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="45.0">
+                     <tooltip>
+                        <Tooltip text="All trace will have at least one constraint violated." />
+                     </tooltip>
+                  </Label>
+                  <RadioButton fx:id="negFalse" layoutX="306.0" layoutY="43.0" mnemonicParsing="false" selected="true" text="False" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
+                  <Label text="Vacuity Detection" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tooltip>
+                        <Tooltip text="All constraints in the model will be activated at least once for each trace." />
+                     </tooltip>
+                  </Label>
+                  <RadioButton fx:id="negTrue" layoutX="217.0" layoutY="43.0" mnemonicParsing="false" text="True" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="45.0" />
+               </children>
+            </AnchorPane>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Constraints" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <ListView fx:id="constraintListView" layoutX="20.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+</fx:root>

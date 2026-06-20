@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root prefHeight="357.0" prefWidth="257.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle fx:id="rectA" arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="149.0" x="54.0" y="57.0" />
+      <Rectangle fx:id="rectB" arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="149.0" x="54.0" y="259.0" />
+      <Rectangle fx:id="exRectA" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="70.0" x="94.0" y="11.0" />
+      <Rectangle fx:id="exRectB" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="70.0" x="94.0" y="213.0" />
+      <Text fx:id="existenceActivityA" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="51.205078125" x="103.0" y="38.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="existenceActivityB" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="51.205078125" x="103.0" y="240.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="supportA" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="141.13671875" x="58.0" y="78.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="supportB" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="141.13671875" x="58.0" y="282.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="activityA" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="141.13671875" x="58.0" y="99.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="activityB" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="141.13671875" x="58.0" y="301.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+   </children>
+</fx:root>

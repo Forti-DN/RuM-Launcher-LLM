@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TitledPane fx:id="rootPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <graphic>
+      <VBox fx:id="titleVbox" spacing="5.0">
+         <children>
+            <Label fx:id="nameLabel" styleClass="detail-group-title" text="Result group name" />
+            <HBox fx:id="statisticsHbox" styleClass="detail-group-statistics">
+               <children>
+                  <Label text="statistic: value" />
+                  <Label layoutX="10.0" layoutY="10.0" text="statistic: value" />
+                  <Label layoutX="94.0" layoutY="10.0" text="statistic: value" />
+                  <Label layoutX="178.0" layoutY="10.0" text="statistic: value" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </graphic>
+   <content>
+      <VBox styleClass="details-table__wrapper">
+         <children>
+            <TableView fx:id="detailsTableView" fixedCellSize="22.0">
+              <columns>
+                <TableColumn fx:id="detailName" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="-1.0" sortable="false" />
+                <TableColumn fx:id="detailContents" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" sortable="false" />
+              </columns>
+               <styleClass>
+                  <String fx:value="details-table" />
+                  <String fx:value="table-view__highlight-selected" />
+               </styleClass>
+            </TableView>
+         </children>
+      </VBox>
+   </content>
+   <styleClass>
+      <String fx:value="detail-group-pane" />
+      <String fx:value="standard-bg-color" />
+   </styleClass>
+</TitledPane>

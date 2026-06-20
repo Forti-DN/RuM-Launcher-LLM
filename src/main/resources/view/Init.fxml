@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root prefHeight="177.0" prefWidth="282.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="84.0" layoutX="25.0" layoutY="1.0" stroke="BLACK" strokeType="OUTSIDE" width="150.0" x="41.0" y="71.0" />
+      <Rectangle fill="WHITE" height="39.0" layoutX="65.0" layoutY="-40.0" stroke="BLACK" strokeType="OUTSIDE" width="70.0" x="41.0" y="71.0" />
+      <Label layoutX="128.0" layoutY="37.0" text="Init" />
+      <Label fx:id="supportLabel" layoutX="72.0" layoutY="75.0" prefHeight="10.0" prefWidth="138.0" text="Label" />
+      <Label fx:id="activityLabel" layoutX="70.0" layoutY="101.0" prefHeight="51.0" prefWidth="145.0" text="Label" />
+   </children>
+</fx:root>

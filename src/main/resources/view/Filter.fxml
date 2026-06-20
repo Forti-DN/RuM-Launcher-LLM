@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root prefHeight="625.0" prefWidth="343.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="minSupportLabel" layoutX="60.0" layoutY="41.0" text="Minimum Constraint Support">
+         <tooltip>
+            <Tooltip text="The constraints must satisfy at least this percentage of the traces" />
+         </tooltip></Label>
+      <Label fx:id="minSupportLabel1" layoutX="67.0" layoutY="171.0" text="Minimum Activity Support">
+         <tooltip>
+            <Tooltip text="Each activity must be in the traces with at least this percentage" />
+         </tooltip></Label>
+      <Label fx:id="constraintLabel" layoutX="260.0" layoutY="75.0" prefHeight="27.0" prefWidth="42.0" />
+      <Label fx:id="activityLabel" layoutX="247.0" layoutY="209.0" prefHeight="27.0" prefWidth="42.0" />
+      <Label layoutX="114.0" layoutY="261.0" text="View model as" />
+      <ChoiceBox fx:id="modelViewChoice" layoutX="58.0" layoutY="288.0" prefWidth="235.0" />
+      <Separator layoutX="9.0" layoutY="251.0" prefHeight="4.0" prefWidth="334.0" />
+      <Separator layoutX="9.0" layoutY="139.0" prefHeight="4.0" prefWidth="334.0" />
+      <Button layoutX="59.0" layoutY="346.0" mnemonicParsing="false" onAction="#exportModel" prefWidth="235.0" text="Export" />
+      <Button layoutX="60.0" layoutY="400.0" mnemonicParsing="false" onAction="#saveDiscovered" prefWidth="232.0" text="Save" />
+   </children>
+</fx:root>

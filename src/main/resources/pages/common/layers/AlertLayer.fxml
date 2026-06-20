@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<GridPane fx:id="rootRegion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="message-background" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.common.layers.AlertLayerController">
+   <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints fillHeight="false" percentHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints percentHeight="55.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" styleClass="message-box" GridPane.rowIndex="1">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label fx:id="headerLabel" maxHeight="1.7976931348623157E308" styleClass="message-box__title" text="Warning" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <FontIcon fx:id="headerIcon" iconColor="#ff9300" iconLiteral="fa-exclamation-triangle" iconSize="40">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </FontIcon>
+               </children>
+            </HBox>
+            <Label fx:id="detailsLabel" maxWidth="1.7976931348623157E308" styleClass="message-box__message" text="The operation has failed" wrapText="true" />
+            <HBox fx:id="buttonsHBox" styleClass="message-box__buttons-group">
+               <children>
+                  <Button fx:id="okButton" mnemonicParsing="false" styleClass="standard-button" text="OK" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" styleClass="standard-button" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</GridPane>

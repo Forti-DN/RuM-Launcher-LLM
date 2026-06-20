@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.generation.GenerationTabController">
+   <children>
+      <HBox fx:id="mainContents">
+         <children>
+            <VBox fx:id="parametersSection" alignment="TOP_RIGHT">
+               <children>
+                  <VBox styleClass="single-parameter">
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="55.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="section-box__title" text="Generation Method" />
+                              <ChoiceBox fx:id="methodChoice" maxWidth="1.7976931348623157E308" styleClass="standard-choice-box" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Label fx:id="methodWarningLabel" styleClass="file-path-label" />
+                     </children>
+                  </VBox>
+                  <TitledPane fx:id="parametersPane" animated="false" styleClass="parameters-pane" text="General parameters">
+                     <content>
+                        <VBox maxHeight="-Infinity" minHeight="-Infinity">
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="55.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Min. events per trace:" />
+                                    <Spinner fx:id="minTraceLengthSpinner" editable="true" GridPane.columnIndex="1" />
+                                    <Label text="Max. events per trace:" GridPane.rowIndex="1" />
+                                    <Spinner fx:id="maxTraceLengthSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="No. of positive traces:" GridPane.rowIndex="2" />
+                                    <Spinner fx:id="numberOfPosTracesSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <GridPane fx:id="alloyParametersPane">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="55.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                 	<Label maxHeight="-Infinity" minHeight="-Infinity" text="Positive and vacuous:" />
+                                    <HBox alignment="CENTER_LEFT" spacing="4.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <Spinner fx:id="percentageOfPosVacuousTracesSpinner" editable="true" prefWidth="105.0" />
+                                          <Label text="\%" />
+                                       </children>
+                                    </HBox>
+                                    <Label text="No. of negative traces:" GridPane.rowIndex="1" />
+                                    <Spinner fx:id="numberOfNegTracesSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 	<Label maxHeight="-Infinity" minHeight="-Infinity" text="Negative and vacuous:" GridPane.rowIndex="2" />
+                                    <HBox alignment="CENTER_LEFT" spacing="4.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Spinner fx:id="percentageOfNegVacuousTracesSpinner" editable="true" prefWidth="105.0" />
+                                          <Label text="\%" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="traceAttributesPane" styleClass="parameters-pane" text="Trace Attributes">
+                     <content>
+                        <VBox styleClass="parameters-pane__content-box--scroll">
+                           <children>
+                              <TreeView fx:id="traceAttributesTreeView" minHeight="44.0" prefHeight="44.0" />
+                              <Button fx:id="addAttributeButton" layoutX="173.0" layoutY="75.0" mnemonicParsing="false" onAction="#showTraceAttributeLayer" styleClass="selection-button" text="Add trace attributes">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" styleClass="parameters-pane" text="Model Constraints">
+                     <content>
+                        <ListView fx:id="constraintListView" focusTraversable="false" />
+                     </content>
+                  </TitledPane>
+                  <HBox styleClass="buttons-group--primary">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#generateLog" styleClass="standard-button" text="Generate" />
+                     </children>
+                  </HBox>
+               </children>
+               <styleClass>
+                  <String fx:value="section-box" />
+                  <String fx:value="section-box--main-parameters" />
+               </styleClass>
+            </VBox>
+            <Separator orientation="VERTICAL" styleClass="separator--primary">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Separator>
+            <StackPane fx:id="resultsContainer" alignment="CENTER_LEFT" onMouseClicked="#hideTraceAttributeSettings" HBox.hgrow="ALWAYS">
+               <children>
+                  <SplitPane fx:id="resultsSplitPane" dividerPositions="0.3">
+                     <items>
+                        <VBox minWidth="75.0" styleClass="section-box">
+                           <children>
+                              <Label minHeight="34.0" styleClass="section-box__title" text="Traces" />
+                              <ListView fx:id="tracesListView" styleClass="list-view__highlight-selected" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox minWidth="150.0" styleClass="section-box">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" minHeight="34.0" spacing="20.0">
+                                       <children>
+                                          <Label fx:id="selectedTraceLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="section-box__title" text="selectedTraceLabel" HBox.hgrow="ALWAYS" />
+                                          <HBox fx:id="saveButtonsHbox" alignment="CENTER_LEFT" spacing="5.0">
+                                             <children>
+                                                <Button maxHeight="30.0" mnemonicParsing="false" onAction="#exportGeneratedLog" styleClass="standard-button" text="Export Log">
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="typ-export" styleClass="standard-button__icon" />
+                                                   </graphic>
+                                                </Button>
+                                             	<Button maxHeight="30.0" mnemonicParsing="false" onAction="#takeSnapshot" styleClass="standard-button" text="Snapshot">
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fa-cube" styleClass="standard-button__icon" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="44.0" spacing="5.0">
+                                       <children>
+                                          <Label text="Show Trace Attributes:" />
+                                          <ToggleSwitch fx:id="showTraceAttributesToggle" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="Show Payloads:" />
+                                          <ToggleSwitch fx:id="showPayloadsToggle" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="resultsVBox" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <!-- Here a Node will be added from Java to display trace attributes  -->
+                                    <ListView fx:id="eventsListView" focusTraversable="false" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </items>
+                  </SplitPane>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="rootRegion" prefWidth="260.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+   <opaqueInsets>
+      <Insets bottom="5.0" />
+   </opaqueInsets>
+   <Label fx:id="filterDescription" maxWidth="1.7976931348623157E308" text="Filter description" wrapText="true" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets bottom="5.0" />
+      </VBox.margin>
+   </Label>
+   <HBox VBox.vgrow="ALWAYS">
+      <Button fx:id="moveUpButton" mnemonicParsing="false" styleClass="standard-button" HBox.hgrow="ALWAYS">
+         <graphic>
+            <FontIcon iconLiteral="fa-arrow-circle-up" styleClass="standard-button__icon" />
+         </graphic>
+         <HBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </HBox.margin>
+      </Button>
+      <Button fx:id="moveDownButton" mnemonicParsing="false" styleClass="standard-button" HBox.hgrow="ALWAYS">
+         <graphic>
+            <FontIcon iconLiteral="fa-arrow-circle-down" styleClass="standard-button__icon" />
+         </graphic>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Button>
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="deleteButton" mnemonicParsing="false" styleClass="standard-button" HBox.hgrow="ALWAYS">
+         <graphic>
+            <FontIcon fx:id="deleteFontIcon" iconLiteral="fa-trash" styleClass="standard-button__icon" />
+         </graphic>
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+      </Button>
+      <Button fx:id="modifyButton" mnemonicParsing="false" styleClass="standard-button" HBox.hgrow="ALWAYS">
+         <graphic>
+            <FontIcon fx:id="editFontIcon" iconLiteral="fa-pencil" styleClass="standard-button__icon" />
+         </graphic>
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+      </Button>
+   </HBox>
+</VBox>

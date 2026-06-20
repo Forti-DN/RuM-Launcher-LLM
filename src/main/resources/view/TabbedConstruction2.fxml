@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="804.0" prefWidth="1302.0" type="TabPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <tabs>
+      <Tab closable="false" text="Activities">
+        <content>
+            <GridPane hgap="50.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="673.0" minWidth="10.0" percentWidth="33.0" prefWidth="494.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="563.0" minWidth="10.0" percentWidth="67.0" prefWidth="495.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane layoutX="8.0" layoutY="7.0">
+                     <children>
+                        <TreeView fx:id="allActivities" prefHeight="694.0" prefWidth="460.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0" />
+                        <Button fx:id="removeSelected" layoutX="11.0" layoutY="706.0" mnemonicParsing="false" onAction="#_removeSelected" prefWidth="187.0" text="Remove selected" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="483.0" layoutY="6.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" GridPane.columnIndex="1">
+                     <children>
+                        <AnchorPane layoutX="11.0" layoutY="339.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="258.0">
+                           <children>
+                              <AnchorPane layoutY="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+                                 <children>
+                                    <Label text="From" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <TextField fx:id="numFrom" layoutY="66.0" prefWidth="146.0" promptText="Lower bound" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label text="Type" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ChoiceBox fx:id="numChoice" layoutY="27.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="27.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <TextField fx:id="numDataName" prefWidth="614.0" promptText="Attribute name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Label layoutY="39.0" text="Attribute name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="144.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+                                 <children>
+                                    <TextField fx:id="numTo" prefWidth="144.0" promptText="Upper bound" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Label layoutY="39.0" text="To" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label text="Numeric Data" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="165.0" layoutY="188.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="170.0">
+                                 <children>
+                                    <Button fx:id="addDataNum1" mnemonicParsing="false" onAction="#addNumDataToSelecteds" text="Add to Selected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="addDataNum" layoutY="39.0" mnemonicParsing="false" onAction="#addNumDataToAll" text="Add to All" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="5.0" layoutY="68.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                           <children>
+                              <AnchorPane layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+                                 <children>
+                                    <Label text="Attribute values" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ListView fx:id="enumAttributeValues" layoutY="27.0" prefHeight="94.0" prefWidth="623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="165.0" layoutY="219.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
+                                 <children>
+                                    <Button fx:id="addDataEnum" mnemonicParsing="false" onAction="#addEnumDataToAll" text="Add to All" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="addDataEnum1" layoutX="637.0" layoutY="10.0" mnemonicParsing="false" onAction="#addEnumDataToSelecteds" text="Add to Selected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <Label prefWidth="129.0" text="Attribute name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <TextField fx:id="enumDataName" layoutY="27.0" prefWidth="618.0" promptText="Attribute name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="76.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#removeAttributeValue" prefWidth="18.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <TextField fx:id="enumAttributeValue" layoutY="39.0" prefWidth="544.0" promptText="Attribute value" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="addAttributeButton" layoutY="78.0" mnemonicParsing="false" onAction="#addAttributeValue" prefWidth="43.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0" />
+                                    <Label layoutY="117.0" text="Add Attribute value" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label text="Enumerative Data" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutY="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                           <children>
+                              <TextField fx:id="activityName" prefWidth="678.0" promptText="Activity name" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="10.0" />
+                              <Button fx:id="addActivityButton" layoutX="499.0" mnemonicParsing="false" onAction="#addActivity" prefWidth="122.0" text="Add Activity" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="50.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+        </content>
+      </Tab>
+      <Tab closable="false" text="Constraints">
+         <content>
+            <GridPane hgap="20.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="templatesList" layoutX="64.0" layoutY="124.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Template Description" AnchorPane.leftAnchor="0.0" />
+                        <TextArea fx:id="templateDescription" editable="false" layoutX="14.0" layoutY="41.0" prefHeight="212.0" prefWidth="297.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <AnchorPane fx:id="activationCondition" layoutY="260.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
+                           <children>
+                              <TextField fx:id="actDataA" layoutX="174.0" layoutY="50.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="30.0" />
+                              <Button layoutX="440.0" layoutY="50.0" mnemonicParsing="false" onAction="#showHelp" prefWidth="27.0" text="?" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                              <Label layoutY="6.0" text="Activation (A)" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                              <Label layoutY="46.0" text="Activation Condition" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                              <ChoiceBox fx:id="activityBoxA" layoutX="124.0" prefWidth="507.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="correlationCondition" layoutY="356.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="330.0">
+                           <children>
+                              <ChoiceBox fx:id="activityBoxB" layoutX="83.0" prefWidth="388.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="actBLabel" layoutY="6.0" text="Target (T)" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                              <TextField fx:id="actDataB" layoutX="196.0" layoutY="50.0" prefWidth="250.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="30.0" />
+                              <Button fx:id="dataInfoB" layoutX="438.0" layoutY="50.0" mnemonicParsing="false" onAction="#showHelp" prefWidth="27.0" text="?" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                              <Label fx:id="actDataBLabel" layoutY="56.0" text="Correlation Condition" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="timeCondition" layoutX="26.0" layoutY="455.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
+                           <children>
+                              <TextField fx:id="timeC" layoutX="167.0" prefWidth="529.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="timeInfo" layoutX="391.0" mnemonicParsing="false" onAction="#showHelpForTime" prefWidth="27.0" text="?" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label layoutY="6.0" text="Time Condition" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                              <Button fx:id="addConstraintButton" mnemonicParsing="false" onAction="#addConstraint" text="Add" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                              <Button fx:id="recordButton" layoutX="530.0" layoutY="40.0" mnemonicParsing="false" onAction="#startReccording" text="Record" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <ListView fx:id="createdConstraintsList" prefHeight="688.0" prefWidth="238.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="clearConstraintButton" layoutX="80.0" layoutY="706.0" mnemonicParsing="false" onAction="#removeConstraint" text="Remove constraint" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Model">
+         <content>
+            <Pane fx:id="modelPane" />
+         </content>
+      </Tab>
+   </tabs>
+</fx:root>

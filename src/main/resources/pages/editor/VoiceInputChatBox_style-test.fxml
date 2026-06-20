@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox style="-fx-background-color: #ffffff; -fx-spacing: 4;" styleClass="chat-box" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Hi! My name is Declo." />
+         </children>
+      </HBox>
+      <HBox styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I can help you create a model based on sentences you say or write." />
+         </children>
+      </HBox>
+      <HBox styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Let me know when I can start listening for a constraint." />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="95.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Or you can write the sentence instead." />
+         </children>
+      </HBox>
+      <HBox spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Start listening">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="Let's write" />
+         </children>
+      </HBox>
+      <HBox styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Start listening" />
+         </children>
+      </HBox>
+      <HBox styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I'm listening..." />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="145.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="(I will stop after I detect a sentence)">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="93.0" styleClass="message-row__user">
+         <children>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="small-button" text="Cancel">
+                     <graphic>
+                        <FontIcon iconLiteral="fa-microphone-slash" styleClass="small-button__icon" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="319.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="&quot;progress scart when&quot;">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="377.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I did not find any constraints from this sentence, but we can try again." />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="170.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Start listening">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="Let's write" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="201.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Start listening" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="230.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I'm listening..." />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="259.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="(I will stop after I detect a sentence)">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="288.0" styleClass="message-row__user">
+         <children>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="small-button" text="Cancel">
+                     <graphic>
+                        <FontIcon iconLiteral="fa-microphone-slash" styleClass="small-button__icon" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="145.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="&quot;The process starts when other is received&quot;">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="145.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Did I understand you correctly?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="93.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Yes" />
+            <Button mnemonicParsing="false" styleClass="small-button" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="123.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="71.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Would you like to edit the text, record again or discard the results?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="93.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Edit" />
+            <Button mnemonicParsing="false" styleClass="small-button" text="Record">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button layoutX="241.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="Discard" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="288.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Edit" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="236.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Please type the sentence." />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="167.0" styleClass="message-row__user">
+         <children>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                  <TextArea maxHeight="60.0" text="The process starts when an order is received" wrapText="true" />
+                  <HBox styleClass="message-row__user">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="small-button" text="Apply" />
+                        <Button layoutX="208.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="Done" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="214.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="&quot;The process starts when an order is received&quot;">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="518.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Would you like to record or write conditions?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="258.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Record" />
+            <Button mnemonicParsing="false" styleClass="small-button" text="Write" />
+            <Button layoutX="201.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="362.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Record" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="540.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="What type of condition would you like to record?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="567.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Activation">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Correlation">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button layoutX="220.0" layoutY="10.0" mnemonicParsing="false" styleClass="small-button" text="Time">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="123.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Activation" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="145.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I'm listening..." />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="167.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="(I will stop after I detect a sentence)">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="189.0" styleClass="message-row__user">
+         <children>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="small-button" text="Cancel">
+                     <graphic>
+                        <FontIcon iconLiteral="fa-microphone-slash" styleClass="small-button__icon" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="241.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Did I understand you correctly?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="263.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Yes" />
+            <Button mnemonicParsing="false" styleClass="small-button" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="293.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="Yes" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="545.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="Would you like to add another type of condition?" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="567.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Correlation">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Time">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" styleClass="small-button" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="293.0" styleClass="message-row__user">
+         <children>
+            <Label styleClass="message-label__user" text="No" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="32.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="You can use the editor to change the constraints." />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="898.0" styleClass="message-row__system">
+         <children>
+            <Label styleClass="message-label__system" text="I am ready to start listening again." />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="93.0" spacing="3.0" styleClass="message-row__user">
+         <children>
+            <Button mnemonicParsing="false" styleClass="small-button" text="Start listening">
+               <graphic>
+                  <FontIcon iconLiteral="fa-microphone" styleClass="small-button__icon" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

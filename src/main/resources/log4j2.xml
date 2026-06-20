@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name='ConsoleAppender' target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-7p [%t] %c - %m%n"/>
+		</Console>
+
+		<File name='FileAppender' fileName="./logs/Rum.log">
+			<PatternLayout pattern="%d %-7p [%t] %c - %m%n"/>
+		</File>
+
+		<File name='FileAppenderMinimal' fileName="./logs/RumMinimal.log">
+			<PatternLayout pattern="%d - %m%n"/>
+		</File>
+
+		<File name='FileAppenderVoice' fileName="./logs/RumVoice.log">
+			<PatternLayout pattern="%d %-7p [%t] %c - %m%n"/>
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="io.grpc.netty.shaded.io" level="DEBUG" additivity="false">
+			<AppenderRef ref="FileAppenderVoice"/>
+			<AppenderRef ref="FileAppender"/>
+		</Logger>
+
+		<Root level="DEBUG">
+			<AppenderRef ref="ConsoleAppender"/>
+			<AppenderRef ref="FileAppender"/>
+			<AppenderRef ref="FileAppenderMinimal"/>
+		</Root>
+	</Loggers>
+</Configuration>

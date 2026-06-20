@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>Network | Basic usage</title>
+
+    <script type="text/javascript" src="vis.min.js"></script>
+    <link href="vis-network.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1080px;
+            height: 1080px;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+    // create a network
+    var container = document.getElementById('mynetwork');
+    // create an array with nodes
+    var nodes = new vis.DataSet();
+
+    // create an array with edges
+    var edges = new vis.DataSet();
+
+    nodes = new vis.DataSet
+    ([
+    {id: 1, label: 'activity1'},
+    {id: 2, label: 'activity2'}
+    ]);
+
+  edges = new vis.DataSet
+  ([
+    {id:11, from: 1, to: 2, color:'black'},
+  ]);
+
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+	console.log(data);
+    var options = {
+    layout:{
+    	improvedLayout: true,
+      hierarchical: {
+        enabled: false,
+        levelSeparation: 900,
+      	nodeSpacing: 750
+      }
+  	},
+    nodes:{
+      borderWidthSelected: 1,
+      shape: 'box',
+      shapeProperties: {
+        borderRadius: 5
+      },
+      color: {
+      border: '#000000',
+      background: '#ffffff'
+    },
+    margin: 10,
+     font: {
+      size: 12 // px
+      }
+  	},
+  	edges:{
+      color: {
+        inherit: false,
+        color: '#000000'
+      },
+      font: {
+      	color: '#000000',
+      	size: 14, // px
+      	align: 'top'
+      },
+      hoverWidth: 0
+  	},
+  	physics:{
+    	enabled: true,
+    	barnesHut: {
+      		gravitationalConstant: -2000,
+      		centralGravity: 0.3,
+      		springLength: 500,
+      		springConstant: 0.04,
+      		damping: 0.09,
+      		avoidOverlap: 1
+    	},
+    	solver: 'barnesHut'
+  	},
+  	interaction:{
+    	dragNodes:true,
+    	dragView:true,
+    	selectable: false,
+    	hover: false,
+    	zoomView: false
+  	}
+  };
+    var network = new vis.Network(container, data, options);
+    console.log(network.body.edges[11]);
+    console.log(network.getPositions());
+    var percent = 50;
+	network.on("dragEnd", function(params) {
+		network.unselectAll();
+	});
+    function setTheData(nodesArray,edgesArray) {
+        nodes = new vis.DataSet(nodesArray);
+        edges = new vis.DataSet(edgesArray);
+        network.setData({nodes:nodes, edges:edges});
+        setTimeout(function(){ 
+        	network.stopSimulation();
+        	network.physics.options.enabled = false; }, 1000);
+        //network.setOptions({layout:{hierarchical:{sortMethod:'directed'}}});
+    }
+</script>
+
+
+</body>
+</html>

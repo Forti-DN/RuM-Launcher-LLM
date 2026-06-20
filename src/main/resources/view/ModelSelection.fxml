@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+
+<fx:root prefHeight="575.0" prefWidth="688.0" type="Pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ListView fx:id="modelList" layoutX="14.0" layoutY="14.0" prefHeight="552.0" prefWidth="287.0" />
+      <Label layoutX="309.0" layoutY="14.0" text="Description" />
+      <TextArea fx:id="modelDescription" layoutX="309.0" layoutY="41.0" prefHeight="187.0" prefWidth="368.0" />
+      <Label layoutX="309.0" layoutY="261.0" text="Activity A" />
+      <TextField fx:id="activityA" layoutX="309.0" layoutY="290.0" prefHeight="39.0" prefWidth="368.0" />
+      <Label layoutX="307.0" layoutY="355.0" text="Activity B" />
+      <TextField fx:id="activityB" layoutX="309.0" layoutY="382.0" prefHeight="39.0" prefWidth="368.0" />
+      <Button layoutX="361.0" layoutY="483.0" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
+      <Button layoutX="524.0" layoutY="483.0" mnemonicParsing="false" text="Add" onAction="#addItem"/>
+   </children>
+</fx:root>

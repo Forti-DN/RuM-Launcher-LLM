@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.filtering.FilteringTabController">
+   <HBox fx:id="mainContents">
+      <VBox fx:id="parametersSection" alignment="CENTER" prefHeight="600.0" prefWidth="323.0">
+         <styleClass>
+            <String fx:value="section-box" />
+            <String fx:value="section-box--main-parameters" />
+         </styleClass>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <Button fx:id="importFiltersButton" mnemonicParsing="false" onAction="#importFilters" prefHeight="31.0" prefWidth="310.0" styleClass="standard-button" text="Import filters" VBox.vgrow="NEVER">
+            <graphic>
+               <FontIcon fill="WHITE" iconLiteral="typ-document-add" iconSize="25" styleClass="standard-button__icon">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </FontIcon>
+            </graphic>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#exportFilters" prefHeight="31.0" prefWidth="310.0" styleClass="standard-button" text="Export filters" VBox.vgrow="NEVER">
+            <graphic>
+               <FontIcon iconLiteral="typ-export" styleClass="standard-button__icon" />
+            </graphic>
+         </Button>
+         <Label fx:id="filteringIntroLabel" alignment="TOP_LEFT" styleClass="filtering-intro-label" text="Click &quot;Add filters&quot; to start populating the filtering chain" textAlignment="CENTER" wrapText="true" />
+         <ListView fx:id="appliedFiltersListView" styleClass="list-view__highlight-selected" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </ListView>
+         <ChoiceBox fx:id="addFiltersChoiceBox" prefHeight="31.0" prefWidth="310.0" styleClass="standard-choice-box" VBox.vgrow="NEVER">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </ChoiceBox>
+         <Button mnemonicParsing="false" onAction="#filter" prefHeight="31.0" prefWidth="310.0" styleClass="standard-button" text="Apply filters" VBox.vgrow="NEVER">
+            <graphic>
+               <FontIcon fill="WHITE" iconLiteral="fa-filter" iconSize="25" styleClass="standard-button__icon">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </FontIcon>
+            </graphic>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Separator fx:id="separator" orientation="VERTICAL" styleClass="separator--primary">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Separator>
+      <StackPane fx:id="stackPaneResults" alignment="CENTER_LEFT" onMouseClicked="#hideFilterSettings" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <VBox>
+            <HBox fx:id="statisticsContents" prefHeight="130.0" prefWidth="647.0" visible="false">
+               <Region HBox.hgrow="ALWAYS" />
+               <VBox prefWidth="150.0" HBox.hgrow="ALWAYS">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="262.0" styleClass="section-box__title" text="Traces" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PieChart fx:id="chartOfCases" labelLineLength="0.0" labelsVisible="false" legendVisible="false" minHeight="90.0" minWidth="120.0" prefHeight="90.0" styleClass="log-statistics-chart">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </PieChart>
+                  <Label fx:id="tracesPercentage" alignment="CENTER" prefHeight="20.0" prefWidth="262.0" styleClass="section-box__title" text="Trace percentage" textAlignment="CENTER" />
+                  <Label fx:id="tracesValue" alignment="CENTER" prefHeight="20.0" prefWidth="262.0" styleClass="section-box__title" text="Trace value" textAlignment="CENTER" />
+               </VBox>
+               <VBox prefWidth="150.0" HBox.hgrow="ALWAYS">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="262.0" styleClass="section-box__title" text="Events" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PieChart fx:id="chartOfEvents" labelLineLength="0.0" labelsVisible="false" legendVisible="false" minHeight="90.0" minWidth="120.0" prefHeight="90.0" styleClass="log-statistics-chart" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </PieChart>
+                  <Label fx:id="eventsPercentage" alignment="CENTER" prefHeight="20.0" prefWidth="262.0" styleClass="section-box__title" text="Events percentage" textAlignment="CENTER" />
+                  <Label fx:id="eventsValue" alignment="CENTER" prefHeight="20.0" prefWidth="262.0" styleClass="section-box__title" text="Events value" textAlignment="CENTER" />
+               </VBox>
+               <VBox prefWidth="170.0" HBox.hgrow="ALWAYS">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+                  <Label alignment="CENTER" prefWidth="262.0" styleClass="section-box__title" text="Trace duration" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <Label prefHeight="30.0" prefWidth="90.0" styleClass="section-box__title" text="Median:" />
+                     <Label fx:id="medianValue" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="140.0" styleClass="section-box__titlee" text="medianValue  " />
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <Label prefHeight="30.0" prefWidth="90.0" styleClass="section-box__title" text="Mean:" />
+                     <Label fx:id="meanValue" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="140.0" styleClass="section-box__titlee" text="meanValue  " />
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <Label prefHeight="30.0" prefWidth="90.0" styleClass="section-box__title" text="Min:" />
+                     <Label fx:id="minCaseDuration" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="140.0" styleClass="section-box__titlee" text="minValue  " />
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <Label prefHeight="30.0" prefWidth="90.0" styleClass="section-box__title" text="Max:" />
+                     <Label fx:id="maxCaseDuration" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="140.0" styleClass="section-box__titlee" text="maxValue  " />
+                  </HBox>
+               </VBox>
+               <VBox prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+                  <Label alignment="CENTER" prefWidth="175.0" styleClass="section-box__title" text="Log Timeframe" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="167.0">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" styleClass="section-box__title" text="Start:" />
+                     <Label fx:id="startTimeValue" prefHeight="30.0" prefWidth="160.0" styleClass="section-box__titlee" text="startTimeValue" />
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="62.0" prefWidth="101.0">
+                     <FontIcon fx:id="arrowIcon" boundsType="LOGICAL_VERTICAL_CENTER" iconLiteral="fa-arrow-down" iconSize="35" textAlignment="CENTER" />
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="167.0">
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="50.0" styleClass="section-box__title" text="End:" />
+                     <Label fx:id="endTimeValue" prefHeight="30.0" prefWidth="160.0" styleClass="section-box__titlee" text="endTimeValue" />
+                  </HBox>
+               </VBox>
+               <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+            <StackPane fx:id="contentsLayer" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS" />
+         </VBox>
+      </StackPane>
+   </HBox>
+</StackPane>

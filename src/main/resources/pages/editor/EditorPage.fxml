@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<VBox fx:id="rootRegion" prefHeight="99.0" prefWidth="622.0" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.editor.EditorPageController">
+   <children>
+      <HBox styleClass="header__layout">
+         <children>
+            <Label styleClass="header__title" text="MP-Declare Editor" />
+            <Button mnemonicParsing="false" onAction="#openModel" styleClass="header__button" text="Open MP-Declare Model">
+               <graphic>
+                  <FontIcon iconLiteral="typ-document" styleClass="header__icon" wrappingWidth="30.0" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#newModel" styleClass="header__button" text="New MP-Declare Model">
+               <graphic>
+                  <FontIcon iconLiteral="typ-document-add" styleClass="header__icon" wrappingWidth="30.0" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="introLabel" styleClass="page-intro-label" text="Click &quot;Open MP-Declare Model&quot; to start editing a pre-existing model&#10;Click &quot;New MP-Declare Model&quot; to start creating a new model" VBox.vgrow="ALWAYS" />
+      <TabPane fx:id="editorTabPane" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

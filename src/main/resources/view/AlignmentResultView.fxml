@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<fx:root gridLinesVisible="true" prefHeight="800.0" prefWidth="1200.0" type="GridPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" percentHeight="100.0" prefHeight="30.0" />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" layoutX="109.0" layoutY="28.0" text="Traces" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+            <ListView fx:id="traceList" layoutX="30.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <children>
+            <VBox fx:id="statBox" prefHeight="108.0" prefWidth="452.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fill="LIME" height="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: #00ff00;" width="43.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Rectangle>
+                        <Label fx:id="greenLabel" prefHeight="27.0" prefWidth="411.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fill="YELLOW" height="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: #ffff00;" width="43.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Rectangle>
+                        <Label fx:id="yellowLabel" prefHeight="27.0" prefWidth="444.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="47.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fill="#a020f0" height="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: #a020f0;" width="43.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Rectangle>
+                        <Label fx:id="purpleLabel" prefHeight="27.0" prefWidth="481.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="differentDataStat" layoutX="10.0" layoutY="64.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="43.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Rectangle>
+                        <Label fx:id="whiteLabel" prefHeight="27.0" prefWidth="463.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="viewPane" layoutX="138.0" layoutY="201.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0" />
+            <AnchorPane layoutX="495.0" layoutY="19.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <ChoiceBox fx:id="sortTraceChoice" layoutX="118.0" prefWidth="150.0" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutY="6.0" text="Sort traces by" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label alignment="CENTER" layoutX="109.0" layoutY="28.0" text="Constraints" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+            <ListView fx:id="constraintList" layoutX="30.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>

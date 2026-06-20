@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.monitoring.FluentsVisualizationController">
+   <content>
+      <VBox styleClass="fluents-root">
+         <children>
+            <VBox fx:id="fluentsVbox">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fluent-name" text="First Constraint">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox styleClass="fluent-line">
+                     <children>
+                        <Label minWidth="60.0" text="temp.viol">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__temp-viol" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__temp-viol" />
+                           </styleClass>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="10.0" minWidth="60.0" text="conflict">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__conflict" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0" text="perm.viol">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__perm-viol" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__perm-viol" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fluent-name" text="Second Constraint" />
+                  <HBox styleClass="fluent-line">
+                     <children>
+                        <Label minWidth="60.0" text="temp.sat">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__temp-sat" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__temp-sat" />
+                           </styleClass>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="10.0" minWidth="60.0" text="conflict">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__conflict" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0" text="perm.sat">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__perm-sat" />
+                           </styleClass>
+                        </Label>
+                        <Label minWidth="60.0">
+                           <styleClass>
+                              <String fx:value="fluent-tile" />
+                              <String fx:value="fluent-tile__perm-sat" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox fx:id="eventLabelHbox">
+               <children>
+                  <Group>
+                     <children>
+                        <Label styleClass="fluent-event-label" text="Event1" />
+                     </children>
+                  </Group>
+                  <Group layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label styleClass="fluent-event-label" text="Event2" />
+                     </children>
+                  </Group>
+                  <Group layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label styleClass="fluent-event-label" text="Event3" />
+                     </children>
+                  </Group>
+                  <Group layoutX="176.0" layoutY="10.0">
+                     <children>
+                        <Label styleClass="fluent-event-label" text="Event4" />
+                     </children>
+                  </Group>
+                  <Group layoutX="259.0" layoutY="10.0">
+                     <children>
+                        <Label styleClass="fluent-event-label" text="Event5" />
+                     </children>
+                  </Group>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

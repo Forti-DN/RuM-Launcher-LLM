@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import tornadofx.control.DateTimePicker?>
+
+<GridPane fx:id="rootRegion" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="596.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.filtering.BasicFiltersWindowController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints percentHeight="0.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <padding>
+      <Insets left="-4.0" />
+   </padding>
+   <AnchorPane fx:id="allPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="607.0" styleClass="slide-in-panel">
+      <Label fx:id="filterByLabel" layoutX="20.0" layoutY="20.0" styleClass="section-box__title" text="Filter by:">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceBoxAttributeEndpointFollower" layoutX="105.0" layoutY="17.0" prefHeight="25.0" prefWidth="193.0" styleClass="standard-choice-box" visible="false" />
+      <Label fx:id="filteringModeLabel" layoutX="20.0" layoutY="65.0" styleClass="section-box__title" text="Filtering mode:">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="anchorPaneAttribute" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="580.0" visible="false">
+         <GridPane layoutX="70.0" layoutY="85.0" prefHeight="90.0" prefWidth="225.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="85.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Label text="[T] Mandatory" />
+            <RadioButton fx:id="mandatoryMode" mnemonicParsing="false" selected="true" styleClass="check-box" GridPane.columnIndex="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroupAttribute" />
+               </toggleGroup></RadioButton>
+            <Label text="[T] Forbidden" GridPane.rowIndex="1" />
+            <RadioButton fx:id="forbiddenMode" mnemonicParsing="false" styleClass="check-box" toggleGroup="$toggleGroupAttribute" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="[E] Keep selected " GridPane.rowIndex="2" />
+            <RadioButton fx:id="keepSelectedMode" mnemonicParsing="false" styleClass="check-box" toggleGroup="$toggleGroupAttribute" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </GridPane>
+         <Label fx:id="nodeValues" alignment="CENTER" layoutX="327.0" layoutY="20.0" prefHeight="31.0" prefWidth="240.0" />
+         <ListView fx:id="listViewAttribute" layoutX="327.0" layoutY="50.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="346.0" prefWidth="240.0" styleClass="list-view__highlight-selected" />
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPanePerformance" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="580.0" visible="false">
+         <ChoiceBox fx:id="choiceBoxPerformance" layoutX="90.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="193.0" styleClass="standard-choice-box" />
+         <Label fx:id="minimumLabel" layoutX="40.0" layoutY="85.0" prefHeight="17.0" prefWidth="178.0" />
+         <Slider fx:id="sliderMinimum" layoutX="210.0" layoutY="83.0" prefHeight="25.0" prefWidth="300.0" />
+         <Label fx:id="currentMinimum" alignment="CENTER" layoutX="210.0" layoutY="100.0" prefHeight="20.0" prefWidth="300.0" textAlignment="CENTER" />
+         <Label fx:id="maximumLabel" layoutX="40.0" layoutY="142.0" prefHeight="18.0" prefWidth="178.0" />
+         <Slider fx:id="sliderMaximum" layoutX="210.0" layoutY="137.0" prefHeight="25.0" prefWidth="300.0" />
+         <Label fx:id="currentMaximum" alignment="CENTER" layoutX="210.0" layoutY="154.0" prefHeight="20.0" prefWidth="300.0" textAlignment="CENTER" />
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneEndpoints" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="580.0" visible="false">
+         <GridPane layoutX="70.0" layoutY="85.0" prefHeight="90.0" prefWidth="225.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="85.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Label text="[T] Discard traces" />
+            <RadioButton fx:id="discardTraces" mnemonicParsing="false" prefHeight="18.0" prefWidth="12.0" selected="true" GridPane.columnIndex="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroupEndpoints" />
+               </toggleGroup>
+            </RadioButton>
+            <Label text="[E] Trim longest" GridPane.rowIndex="1" />
+            <RadioButton fx:id="trimLongest" mnemonicParsing="false" toggleGroup="$toggleGroupEndpoints" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="[E] Trim first" GridPane.rowIndex="2" />
+            <RadioButton fx:id="trimFirst" mnemonicParsing="false" toggleGroup="$toggleGroupEndpoints" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </GridPane>
+         <Label fx:id="startEventValuesLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="327.0" layoutY="20.0" prefHeight="31.0" prefWidth="240.0" textAlignment="CENTER" wrapText="true" />
+         <ListView fx:id="listViewInitialEndpoints" layoutX="327.0" layoutY="50.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="155.0" prefWidth="240.0" styleClass="list-view__highlight-selected" />
+         <Label fx:id="endEventValuesLabel" alignment="CENTER" layoutX="327.0" layoutY="205.0" prefHeight="31.0" prefWidth="240.0" textAlignment="CENTER" wrapText="true" />
+         <ListView fx:id="listViewEndEndpoints" layoutX="327.0" layoutY="236.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="160.0" prefWidth="240.0" styleClass="list-view__highlight-selected" />
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneFollower" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="580.0" visible="false">
+         <Label fx:id="startEventValuesLabelFollower" alignment="CENTER" contentDisplay="CENTER" layoutX="327.0" layoutY="20.0" prefHeight="31.0" prefWidth="240.0" textAlignment="CENTER" wrapText="true" />
+         <ListView fx:id="listViewInitialFollower" layoutX="327.0" layoutY="50.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="155.0" prefWidth="240.0" styleClass="list-view__highlight-selected" />
+         <Label fx:id="endEventValuesLabelFollower" alignment="CENTER" layoutX="327.0" layoutY="205.0" prefHeight="31.0" prefWidth="240.0" textAlignment="CENTER" wrapText="true" />
+         <ListView fx:id="listViewEndFollower" layoutX="327.0" layoutY="236.0" prefHeight="160.0" prefWidth="240.0" styleClass="list-view__highlight-selected" />
+         <GridPane layoutX="70.0" layoutY="85.0" prefHeight="120.0" prefWidth="225.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="85.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Label text="[T] Eventually followed" />
+            <RadioButton fx:id="eventually_followed" mnemonicParsing="false" selected="true" GridPane.columnIndex="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroupFollower" />
+               </toggleGroup>
+            </RadioButton>
+            <Label text="[T] Directly followed" GridPane.rowIndex="1" />
+            <RadioButton fx:id="directly_followed" mnemonicParsing="false" toggleGroup="$toggleGroupFollower" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="[T] Never eventually followed" GridPane.rowIndex="2" />
+            <RadioButton fx:id="never_eventually_followed" mnemonicParsing="false" toggleGroup="$toggleGroupFollower" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <RadioButton fx:id="never_directly_followed" mnemonicParsing="false" toggleGroup="$toggleGroupFollower" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="[T] Never directly followed" GridPane.rowIndex="3" />
+         </GridPane>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneTimeframe" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="580.0" visible="false">
+         <Label layoutX="5.0" layoutY="3.0" prefHeight="26.0" styleClass="section-box__title" text="Start date and time" />
+         <DateTimePicker fx:id="dateTimeStart" format="dd.MM.yyyy HH:mm:ss" layoutX="185.0" layoutY="3.0" prefHeight="26.0" prefWidth="190.0" />
+         <Label layoutX="5.0" layoutY="47.0" prefHeight="26.0" styleClass="section-box__title" text="End date and time" />
+         <DateTimePicker fx:id="dateTimeEnd" format="dd.MM.yyyy HH:mm:ss" layoutX="185.0" layoutY="47.0" prefHeight="26.0" prefWidth="190.0" />
+         <GridPane layoutX="70.0" layoutY="85.0" prefHeight="150.0" prefWidth="225.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="85.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Label text="[T] Contained in timeframe" />
+            <RadioButton fx:id="containedInTimeFrame" mnemonicParsing="false" selected="true" GridPane.columnIndex="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroupTimeframe" />
+               </toggleGroup>
+            </RadioButton>
+            <Label text="[T] Intersecting in timeframe" GridPane.rowIndex="1" />
+            <RadioButton fx:id="intersectingInTimeframe" mnemonicParsing="false" toggleGroup="$toggleGroupTimeframe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="[T] Started in timeframe" GridPane.rowIndex="2" />
+            <RadioButton fx:id="startedInTimeframe" mnemonicParsing="false" toggleGroup="$toggleGroupTimeframe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="[T] Completed in timeframe" GridPane.rowIndex="3" />
+            <RadioButton fx:id="completedInTimeframe" mnemonicParsing="false" toggleGroup="$toggleGroupTimeframe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="[E] Trim to timeframe" GridPane.rowIndex="4" />
+            <RadioButton fx:id="trimToTimeframe" mnemonicParsing="false" toggleGroup="$toggleGroupTimeframe" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </GridPane>
+      </AnchorPane>
+      <Button layoutX="85.0" layoutY="365.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="220.0" styleClass="standard-button" text="Close" />
+      <Button fx:id="addFilterButton" layoutX="85.0" layoutY="400.0" mnemonicParsing="false" onAction="#addFilter" prefHeight="25.0" prefWidth="220.0" styleClass="standard-button" text="Add filter" />
+      <Button fx:id="clearAllButton" layoutX="199.0" layoutY="328.0" mnemonicParsing="false" onAction="#clearAll" prefHeight="25.0" prefWidth="105.0" styleClass="standard-button" text="Clear All" />
+      <Button fx:id="selectAllButton" layoutX="85.0" layoutY="328.0" mnemonicParsing="false" onAction="#selectAll" prefHeight="25.0" prefWidth="105.0" styleClass="standard-button" text="Select All" />
+   </AnchorPane>
+</GridPane>

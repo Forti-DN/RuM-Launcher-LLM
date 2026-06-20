@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<GridPane styleClass="inventory-dialog" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="controller.common.InventoryController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+    <ColumnConstraints hgrow="ALWAYS" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints percentHeight="18.0" />
+    <RowConstraints vgrow="ALWAYS" />
+    <RowConstraints  />
+  </rowConstraints>
+   <children>
+ 	<Label styleClass="dialog-header2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" text="Event logs" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label styleClass="dialog-header2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" text="Process maps" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <ListView fx:id="eventLogList" styleClass="dialog-list, left" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <ListView fx:id="modelList" styleClass="dialog-list, right" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Button styleClass="small-button" onAction="#importEventLog" style="-fx-padding: 10px;" GridPane.halignment="CENTER" text="Import event log" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Button styleClass="small-button" onAction="#importModel" style="-fx-padding: 10px;" GridPane.halignment="CENTER" text="Import process map" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+</GridPane>

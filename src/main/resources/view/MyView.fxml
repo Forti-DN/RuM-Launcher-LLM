@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="1009.0" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+      <children>
+      	<Button layoutX="261.0" layoutY="118.0" mnemonicParsing="false" onAction="#drawOutput" text="Run" />
+      	<Button layoutX="461.0" layoutY="118.0" mnemonicParsing="false" onAction="#openConfigScene" text="Config" />
+      	<Text fx:id="text" layoutX="193.0" layoutY="180.0" />
+      <Pane layoutX="76.0" layoutY="173.0" prefHeight="427.0" prefWidth="900.0" fx:id="outputPane" />
+      </children>
+   <padding>
+      <Insets bottom="50.0" left="50.0" />
+   </padding>
+</fx:root>

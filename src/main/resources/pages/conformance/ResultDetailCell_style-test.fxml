@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<HBox styleClass="detail-container" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--fulfillment" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--violation" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--insertion" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--insertion-other" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--deletion" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--deletion-other" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail--data-difference" />
+            <String fx:value="detail" />
+         </styleClass>
+      </Region>
+      <Region>
+         <styleClass>
+            <String fx:value="detail" />
+            <String fx:value="detail--none" />
+         </styleClass>
+      </Region>
+   </children>
+</HBox>

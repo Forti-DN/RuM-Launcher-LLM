@@ -1,0 +1,589 @@
+set ate.EventType;
+set ate.Originator;
+date ate.Timestamp := "yyyy-MM-dd";
+set ate.WorkflowModelElement;
+
+rename ate.EventType as eventtype;
+rename ate.Originator as person;
+rename ate.Timestamp as timestamp;
+rename ate.WorkflowModelElement as activity;
+
+
+############################################################################################################################################################
+    formula last() :=
+    {
+        This filter keeps only traces where there is only one event.
+    }
+      ! ( _O ( activity == activity));
+############################################################################################################################################################
+
+############################################################################################################################################################
+    formula second_last() :=
+    {
+        This filter keeps only traces where there are exactly two events.
+    }
+      _O (last());
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+    formula third_last() :=
+    {
+        This filter keeps only traces where there are exactly three events.
+    }
+        _O(second_last());
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_first_state_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed in the first event.
+}
+    activity == A;
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_second_state_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed in the second event.
+}
+  _O (activity == A);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_third_state_A( A: activity ) :=
+{
+    This filter keeps only the traces where activity A is performed in the third event.
+}
+  _O ( _O (activity == A));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_last_state_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed in the last event.
+}
+  <> ((activity == A /\ last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_second_last_state_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed in the penultimate event.
+}
+  <> ((activity == A /\ second_last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula is_activity_of_third_last_state_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed in the third-last event.
+}
+  <> ((activity == A /\ third_last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A(A: activity) :=
+{
+    This filter keeps only the traces where activity A occurs.
+}
+    <> (activity == A);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A_and_eventually_B(A:activity, B:activity) :=
+{
+    This filter keeps only traces where activity A and B occur.
+}
+    (eventually_activity_A(A) /\ eventually_activity_A(B));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A_or_eventually_B(A:activity, B: activity) :=
+{
+    This filter keeps only the traces where activity A or B occurs.
+}
+    (eventually_activity_A(A) \/ eventually_activity_A(B));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A_next_B( A: activity, B: activity) :=
+{
+    This filter keeps only the traces where activity A occurs immediately followed by activity B.
+}
+    <> ((activity == A /\ _O (activity == B)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A_then_B_then_C(A: activity, B: activity, C: activity) :=
+{
+    This filter keeps only the traces where activity A occurs eventually followed by activity B, which is further eventually followed by activity C.
+}
+    <> ((activity == A /\ <> ((activity == B /\ <>(activity == C )))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_activity_A_next_B_next_C(A: activity, B: activity, C: activity) :=
+{
+    This filter keeps only the traces where activity A occurs, immediately followed by activity B, which is then immediately followed by activity C.
+}
+    <>((activity == A /\ _O ((activity == B /\ _O (activity == C)))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_first_state(P: person) :=
+{
+    This filter keeps only the traces where the first event is performed by Person P.
+}
+  person == P;
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_second_state(P: person) :=
+{
+    This filter keeps only the traces where the second event is performed by Person P.
+}
+  _O (person == P);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_third_state(P: person) :=
+{
+   This filter keeps only the traces where the third event is performed by Person P.
+}
+  _O( _O( person == P ) );
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_last_state(P: person) :=
+{
+    This filter keeps only the traces where the last event is performed by Person P.
+}
+  <> ((person == P /\ last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_second_last_state(P: person) :=
+{
+    This filter keeps only the traces where the penultimate event is performed by Person P.
+}
+  <>((person == P /\ second_last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula does_person_P_the_third_last_state(P: person) :=
+{
+    This filter keeps only the traces where the third-last event is performed by Person P.
+}
+  <> ((person == P /\ third_last()));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P(P: person) :=
+{
+    This filter keeps only the traces where there is at least one event performed by Person P.
+}
+    <>(person == P);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_and_eventually_person_Q(P: person, Q: person) :=
+{
+    This filter keeps only the traces where Person P and Person Q have each performed at least one event.
+}
+  (eventually_person_P(P) /\ eventually_person_P(Q));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_or_eventually_person_Q(P: person, Q: person) :=
+{
+    This filter keeps only the traces where either Person P or Person Q has performed at least one event.
+}
+  (eventually_person_P(P) \/ eventually_person_P(Q));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_then_Q(P: person, Q: person) :=
+{
+    This filter keeps only the traces where the occurrence of an event performed by Person P, is followed at some point in the future by the occurrence of an event performed by Person Q.
+}
+    <>((person == P /\ <> (person == Q)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_next_Q(P: person, Q: person) :=
+{
+    This filter keeps only the traces where the occurrence of an event performed by Person P, is immediately followed by the occurrence of an event performed by Person Q.
+}
+    <> ((person == P /\ _O (person == Q)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_then_Q_then_R(P: person, Q: person, R: person) :=
+{
+    This filter keeps only the traces where the occurrence of an event performed by Person P, is followed at some point in the future by the occurrence of an event performed by Person Q, which in turn is followed at some point in the future by the occurrence of an event performed by Person R.
+}
+    <> ((person == P /\ <> ((person == Q /\ <> (person == R)))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_person_P_next_Q_next_R(P: person, Q: person, R: person) :=
+{
+    This filter keeps only the traces where the occurrence of an event performed by Person P, is immediately followed by the occurrence of an event performed by Person Q, which in turn is immediately followed by the occurrence of an event performed by Person R.
+}
+    <> ((person == P /\ _O ((person == Q /\ _O (person == R)))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_before_time_T(T: timestamp) :=
+{
+    This filter keeps only the traces where an event occurs prior to the specified timestamp T.
+}
+  <> (timestamp <= T);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_after_time_T(T: timestamp) :=
+{
+    This filter keeps only the traces where an event occurs after the specified timestamp T.
+}
+  <> (timestamp >= T);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula always_between_time_T_and_U(T: timestamp, U: timestamp) :=
+{
+    This filter keeps only the traces where events always occur between the specified timestamp T and timestamp U.
+}
+  [] ((timestamp >= T /\ timestamp <= U));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula first_state_event_E(E: eventtype) :=
+{
+    This filter keeps only the traces where the first event has the event type E.
+}
+  eventtype == E;
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula second_state_event_E( E: eventtype) :=
+{
+    This filter keeps only the traces where the second event has the event type E.
+}
+  _O( eventtype == E );
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula third_state_event_E( E: eventtype ) :=
+{
+    This filter keeps only the traces where the third event has the event type E.
+}
+  _O ( _O (eventtype == E ));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula last_state_event_E(E: eventtype) :=
+{
+    This filter keeps only the traces where the last event has the event type E.
+}
+  <> ((eventtype == E /\ last()));
+############################################################################################################################################################
+
+
+
+############################################################################################################################################################
+formula second_last_state_event_E(E: eventtype) :=
+{
+    This filter keeps only the traces where the penultimate event has the event type E.
+}
+  (eventtype == E /\ second_last());
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula third_last_state_event_E(E: eventtype) :=
+{
+    This filter keeps only the traces where the third-last event has the event type E.
+}
+  (eventtype == E /\ third_last());
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_event_E(E: eventtype) :=
+{
+   This filter keeps only the traces where at least one event with event type E occurs.
+}
+  <> (eventtype == E);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_event_E_and_F(E: eventtype, F: eventtype) :=
+{
+    This filter keeps only the traces where an event with event type E occurs, and an event with event type F occurs as well.
+}
+  ( <> (eventtype == E) /\ <> (eventtype == F));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula eventually_event_E_or_F(E: eventtype, F: eventtype) :=
+{
+    This filter keeps only the traces where an event with event type E occurs or an event with even type F occurs.
+}
+  ( <> (eventtype == E) \/ <> (eventtype == F));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula P_does_A( P: person, A: activity ) :=
+{
+    This filter keeps only the traces where activity A is performed by person P.
+}
+    ( person == P /\ activity == A);
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula activity_A_is_done_by_person_P_and_Q(A: activity, P: person, Q: person) :=
+{
+    This filter keeps only the traces where both person P and person Q have performed activity A.
+}
+    (<> (P_does_A(P,A)) /\ <> (P_does_A(Q,A)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula person_P_does_activity_A(P: person, A: activity) :=
+{
+    This filter keeps only the traces where person P has performed activity A.
+}
+    <> (P_does_A(P,A));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula person_P_does_activity_A_and_B( P: person, A: activity, B: activity ) :=
+{
+    This filter keeps only the traces where person P performs both activity A and activity B.
+}
+    (person_P_does_activity_A(P,A) /\ person_P_does_activity_A(P,B));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula person_P_does_activity_A_and_then_B(P: person, A: activity, B: activity) :=
+{
+    This filter keeps only the traces where person P performs activity A, and immediately after that, performs activity B.
+}
+    <> ((P_does_A(P,A) /\  _O (P_does_A(P,B))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula person_P_does_activity_A_and_then_eventually_B( P: person, A: activity, B: activity ) :=
+{
+    This filter keeps only the traces where person P performs activity A, and at some point in the future, activity B is performed by person P.
+}
+    <> ((P_does_A(P,A) /\ <> (P_does_A(P,B))));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula exists_person_doing_task_A_and_B( A: activity, B: activity ) :=
+{
+    This filter keeps only the traces where there exists a person who performs both activity A and activity B.
+}
+    exists[ p: person | (person_P_does_activity_A(p,A) /\ person_P_does_activity_A(p,B))];
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula P_does_A-A_not_B( P: person, A: activity, B: activity ) :=
+{
+    This filter keeps only the traces where person P performs activity A but not activity B.
+}
+    <> ((activity == A /\ (activity != B /\ person == P)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula A_done_by_P-P_not_Q(A: activity, P: person, Q: person) :=
+{
+    This filter keeps only the traces where activity A is performed by person P but not by person Q.
+}
+    <> ((person == P /\ (person != Q /\ activity == A)));
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula exists_person_doing_two_different_activities() :=
+{
+    This filter keeps only the traces where there exists a person who performs two different activities.
+}
+    exists[p: person | exists[ s: activity | exists[ t: activity | (P_does_A-A_not_B(p,s,t) /\ P_does_A-A_not_B(p,t,s))]]];
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula exists_activity_A_done_by_two_different_persons(A: activity) :=
+{
+    This filter keeps only the traces where activity A is performed by two different persons.
+}
+    exists[ p: person | exists[ q: person | (A_done_by_P-P_not_Q(A,p,q) /\ A_done_by_P-P_not_Q(A,q,p))]];
+############################################################################################################################################################
+
+
+############################################################################################################################################################
+formula exists_activity_done_by_two_different_persons() :=
+{
+    This filter keeps only the traces where there exist activities performed by two different persons.
+}
+    exists[ a: activity | exists[ p: person | exists[ q: person | (A_done_by_P-P_not_Q(a,p,q) /\ A_done_by_P-P_not_Q(a,q,p))]]];
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula responded_existence(A: activity, B: activity) :=
+{
+   This filter keeps only the traces where the occurrence of activity A is followed by the occurrence of activity B.
+}
+	(<>(activity == A) -> <>(activity ==B));
+
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula not_responded_existence(A: activity, B: activity) :=
+{
+   This filter keeps only the traces where the occurrence of activity A is never followed by the occurrence of activity B.
+}
+	(<>(activity == A) -> !(<>(activity ==B)));
+
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula response(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity A is preceded by the occurrence of activity B.
+}
+    [] ((activity==A ->  <> (activity== B)));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula not_response(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity A is not preceded by the occurrence of activity B.
+}
+    [] ((activity==A -> ! ( <> (activity== B))));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula chain_response(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity A is immediately followed by the occurrence of activity B.
+}
+    [] ((activity==A -> _O(activity==B)));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula not_chain_response(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity A is not immediately followed by the occurrence of activity B.
+}
+    [] ((activity==A -> ! (_O (activity==B))));
+
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula alternate_response(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity A is followed afterwards by the occurrence of activity B before activity A recurs.
+}
+     [] ((activity==A -> _O ((!(activity==A) _U activity==B)))) ;
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula precedence(A: activity, B: activity) :=
+{
+     This filter keeps only the traces where the occurrence of activity B is allowed, given that it is preceded by the occurrence of activity A.
+}
+      (( !(activity==B) _U activity==A)  \/ ([] ( ! (activity==B)) /\  (!(activity==B)  \/ (!(_O(activity==A)) /\ !(_O(!(activity==A))) ) ) )) ;
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula not_precedence(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity B is not preceded by the occurrence of activity A.
+}
+    [] ((activity==A ->  ! ( <> (activity==B))));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula chain_precedence(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity B is immediately preceded by the occurrence of activity A.
+}
+    []( (_O(activity == B) -> activity ==A ));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula not_chain_precedence(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity B is not immediately preceded by the occurrence of activity A.
+}
+     [] ((activity ==A -> ! ( _O (activity==B))));
+############################################################################################################################################################
+
+############################################################################################################################################################
+
+formula alternate_precedence(A: activity, B: activity) :=
+{
+    This filter keeps only the traces where the occurrence of activity B is always preceded by activity A and no other occurrence of activity B happens in between.
+}
+    (( ( ( !(activity==B) _U activity==A) \/ []( !(activity==B))) /\ []((activity==B ->( (!(_O(activity==A)) /\ !(_O(!(activity==A))) ) \/ _O((( !(activity==B) _U activity==A) \/ []( !(activity==B)))))))) /\ (  ! (activity==B) \/ (!(_O(activity==A)) /\ !(_O(!(activity==A))) ) ));

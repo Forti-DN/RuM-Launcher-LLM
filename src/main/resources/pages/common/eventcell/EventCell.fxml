@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootRegion" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox styleClass="event-cell">
+         <children>
+            <Label fx:id="eventNumberLabel" styleClass="event-number" text="999" />
+            <VBox styleClass="event-data-box" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label fx:id="conceptNameLabel" styleClass="event-title" text="ER Registration" />
+                        <Label fx:id="timeTimestampLabel" styleClass="event-data-text" text="21.12.2014 12:04:24" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="payloadVBox" styleClass="event-payload-box">
+                     <children>
+                        <Label styleClass="event-data-text" text="InfectionSuspected: true" />
+                        <Label styleClass="event-data-text" text="Infusion: true" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Region fx:id="eventTypeStrip" minHeight="8.0" />
+   </children>
+</VBox>

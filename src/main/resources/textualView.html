@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #mymodel {
+            width: 880px;
+            height: 880px;
+            font-family: Helvetica;
+        }
+    </style>
+</head>
+<body>
+    <div id="mymodel">
+        <h2>Activities</h2>
+        <div id="activities"></div>
+        <hr>
+        <h2>Constraints</h2>
+        <div id="constraints"></div>
+        <h2 id="payloadsTitle"></h2>
+        <div id="payloads"></div>
+    </div>
+    <script>
+        function setText(activities, constraints) {
+            var actDiv = document.getElementById("activities");
+            var actArr = activities.split("\n");
+            var index = 1;
+            actArr.forEach(a => {
+                if(a !== '') {
+                    var p = document.createElement("p");
+                    p.innerHTML = a;
+                    actDiv.appendChild(p);
+                    index = index + 1;
+                }
+            });
+
+            var actDiv = document.getElementById("constraints");
+            var actArr = constraints.split("\n");
+            index = 1;
+            actArr.forEach(a => {
+                if(a !== '') {
+                    var p = document.createElement("p");
+                    p.innerHTML = a;
+                    actDiv.appendChild(p);
+                    index = index + 1;
+                }
+            });
+            var payloadsTitle = document.getElementById("payloadsTitle");
+            payloadsTitle.innerHTML = "";
+            var payload =  document.getElementById("payloads");
+            if(payload.childElementCount>0){
+                var a = payload.children;
+                for (let i = 0; i < a.length; i++) {
+                    a[i].remove();
+                }
+            }
+        }
+
+        function setText2(activities, constraints, payloads) {
+            var actDiv = document.getElementById("activities");
+            var actArr = activities.split("\n");
+            var index = 1;
+            actArr.forEach(a => {
+                if(a !== '') {
+                    var p = document.createElement("p");
+                    p.innerHTML = a;
+                    actDiv.appendChild(p);
+                    index = index + 1;
+                }
+            });
+
+            var actDiv = document.getElementById("constraints");
+            var actArr = constraints.split("\n");
+            index = 1;
+            actArr.forEach(a => {
+                if(a !== '') {
+                    var p = document.createElement("p");
+                    p.innerHTML = a;
+                    actDiv.appendChild(p);
+                    index = index + 1;
+                }
+            });
+            let payloadsTitle = document.getElementById("payloadsTitle");
+            payloadsTitle.innerHTML = "Constraints with payloads";
+
+            let payloadsContent =  document.getElementById("payloads");
+            var actArr = payloads.split("\n");
+            index = 1;
+            actArr.forEach(a => {
+                if(a !== '') {
+                    var p = document.createElement("p");
+                    p.innerHTML = a;
+                    payloadsContent.appendChild(p);
+                    index = index + 1;
+                }
+            });
+        }
+        //setModel('digraph { size="5" ratio = "fill" a -> b; }');
+        //setText("act1_80%\nact2_90%\n","Response(act1, act2)_50%\nPrecedence(act1, act2)_80%\n");-->
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root prefHeight="661.0" prefWidth="653.0" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="header1" layoutX="14.0" layoutY="14.0" text="Average Fitness" underline="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="averageFitness" layoutX="14.0" layoutY="53.0" text="Label" AnchorPane.leftAnchor="15.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="header3" layoutX="14.0" layoutY="14.0" text="Number of Traces" underline="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="traceCount" layoutX="14.0" layoutY="53.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="header4" layoutX="14.0" layoutY="14.0" text="Number of Constraints" underline="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="numConstraint" layoutX="14.0" layoutY="53.0" text="Label" />
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>

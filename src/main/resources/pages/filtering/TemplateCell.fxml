@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<VBox fx:id="vbox" spacing="5.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="5.0"/>
+   </padding>
+   <VBox fx:id="filterDescription" prefWidth="0.0" spacing="5.0" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets/>
+      </VBox.margin>
+      <Label fx:id="filter" styleClass="detail-group-title" text="Filter description" wrapText="true"/>
+      <Text fx:id="statisticLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Template name"/>
+   </VBox>
+</VBox>

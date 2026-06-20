@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane fx:id="rootStackPane" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.discovery.DiscoveryTabController">
+   <children>
+      <HBox fx:id="mainContents">
+         <children>
+            <VBox fx:id="parametersSection" maxHeight="1.7976931348623157E308">
+               <children>
+                  <VBox styleClass="single-parameter">
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="55.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" percentWidth="45.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="section-box__title" text="Discovery method" />
+                              <ChoiceBox fx:id="methodChoice" maxWidth="1.7976931348623157E308" styleClass="standard-choice-box" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="30.0" layoutY="35.0" styleClass="single-parameter">
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="35.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" percentWidth="65.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="section-box__title" text="Templates" />
+                              <Button fx:id="toggleTemplateSettingsButton" mnemonicParsing="false" onAction="#toggleTemplateSettings" styleClass="selection-button" text="Show templates" GridPane.columnIndex="1">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <Label fx:id="noTemplatesSelectedError" maxWidth="1.7976931348623157E308" styleClass="file-path-label" text="At least one template must be selected!" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <TitledPane fx:id="generalParametersPane" animated="false" layoutX="30.0" layoutY="165.0" styleClass="parameters-pane" text="General Parameters">
+                     <content>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="55.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Min Constraint Support:" />
+                              <HBox alignment="CENTER_LEFT" spacing="4.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Spinner fx:id="minConstraintSupportSpinner" editable="true" prefWidth="105.0" />
+                                    <Label text="\%" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="pruningLabel" text="(row managed in java)" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="declarePruningChoice" maxWidth="1.7976931348623157E308" styleClass="standard-choice-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="minerfulPruningChoice" maxWidth="1.7976931348623157E308" styleClass="standard-choice-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Vacuous as Violated:" GridPane.rowIndex="2" />
+                              <ToggleSwitch fx:id="vacuityAsViolationToggle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Consider Lifecycle:" GridPane.rowIndex="3" />
+                              <ToggleSwitch fx:id="considerLifecycleToggle" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Discover Time Conditions:" GridPane.rowIndex="4" />
+                              <ToggleSwitch fx:id="timeConditionDiscoveryToggle" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Discover Data Conditions:" GridPane.rowIndex="5" />
+                              <ChoiceBox fx:id="dataConditionsChoice" maxWidth="1.7976931348623157E308" styleClass="standard-choice-box" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <HBox styleClass="buttons-group--primary">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#discoverModel" styleClass="standard-button" text="Discover" />
+                     </children>
+                  </HBox>
+               </children>
+               <styleClass>
+                  <String fx:value="section-box" />
+                  <String fx:value="section-box--main-parameters" />
+               </styleClass>
+            </VBox>
+            <Separator orientation="VERTICAL" styleClass="separator--primary" />
+            <StackPane fx:id="settingsLayer" alignment="CENTER_LEFT" onMouseClicked="#hideTemplateSettings" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox fx:id="resultsPane" styleClass="section-box">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" minHeight="34.0" spacing="15.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="section-box__title" text="Visualization" HBox.hgrow="ALWAYS" />
+                              <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
+                                 <children>
+                                    <Label text="Zoom" />
+                                    <Slider fx:id="zoomSlider" blockIncrement="0.1" max="4.0" value="1.0" />
+                                    <HBox alignment="CENTER_LEFT" fillHeight="false" prefWidth="45.0" styleClass="percentage-box" HBox.hgrow="NEVER">
+                                       <children>
+                                          <TextField fx:id="zoomValueField" alignment="CENTER_RIGHT" maxWidth="34.0" style="-fx-background-color: transparent;" text="100.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" top="2.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Label minWidth="10.0" text="\%" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label text="View model as:" />
+                                    <ChoiceBox fx:id="modelViewChoiceBox" maxHeight="30.0" prefWidth="100.0" styleClass="standard-choice-box" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="saveButtonsHbox" alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Button maxHeight="30.0" mnemonicParsing="false" onAction="#exportModel" styleClass="standard-button" text="Export">
+                                       <graphic>
+                                          <FontIcon iconLiteral="typ-export" styleClass="standard-button__icon" />
+                                       </graphic>
+                                    </Button>
+                                    <Button maxHeight="30.0" mnemonicParsing="false" onAction="#takeScreenshot" styleClass="standard-button" text="Screenshot">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fa-photo" styleClass="standard-button__icon" />
+                                       </graphic>
+                                    </Button>
+                                    <Button maxHeight="30.0" mnemonicParsing="false" onAction="#takeSnapshot" styleClass="standard-button" text="Snapshot">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fa-cube" styleClass="standard-button__icon" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Separator styleClass="separator--secondary">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Separator>
+                        <FlowPane hgap="30.0" vgap="10.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                 <children>
+                                    <Label styleClass="section-box__subtitle" text="Filter:" />
+                                    <HBox spacing="20.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                             <children>
+                                                <Label text="Activity Support" />
+                                                <Slider fx:id="activityFilterSlider" blockIncrement="1.0" value="10.0" />
+                                                <HBox alignment="CENTER_LEFT" prefWidth="45.0" styleClass="percentage-box">
+                                                   <children>
+                                                      <TextField fx:id="activityFilterField" alignment="CENTER_RIGHT" maxWidth="34.0" style="-fx-background-color: transparent;" text="10.0">
+                                                         <padding>
+                                                            <Insets bottom="2.0" left="2.0" top="2.0" />
+                                                         </padding>
+                                                      </TextField>
+                                                      <Label text="\%" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <HBox fx:id="constraintFilterBox" alignment="CENTER_LEFT" spacing="5.0">
+                                             <children>
+                                                <Label text="Constraint Support" />
+                                                <Slider fx:id="constraintFilterSlider" blockIncrement="1.0" value="100.0" />
+                                                <HBox alignment="CENTER_LEFT" prefWidth="45.0" styleClass="percentage-box">
+                                                   <children>
+                                                      <TextField fx:id="constraintFilterField" alignment="CENTER_RIGHT" maxWidth="34.0" style="-fx-background-color: transparent;" text="100.0">
+                                                         <padding>
+                                                            <Insets bottom="2.0" left="2.0" top="2.0" />
+                                                         </padding>
+                                                      </TextField>
+                                                      <Label text="\%" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <!-- Separator orientation="VERTICAL" styleClass="separator- -secondary" /-->
+                                          <!-- Button mnemonicParsing="false" onAction="#removeInconsistencies" styleClass="standard-button" text="Remove Inconsistencies" /-->
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="showLabelsHBox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="30.0" spacing="10.0">
+                                 <children>
+                                 	<Label styleClass="section-box__subtitle" text="Show:" />
+                                    <HBox spacing="20.0">
+                                       <children>
+                                          <HBox fx:id="constraintLabelsHBox" alignment="CENTER_LEFT" spacing="10.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                                                   <children>
+                                                      <Label text="Constraint Labels" />
+                                                      <ToggleSwitch fx:id="showConstraintsToggle" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                                                   <children>
+            		                                  <Label text="with:" />
+            		                                  <ChoiceBox fx:id="showLabelsChoice" prefWidth="150.0" styleClass="standard-choice-box" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <Separator orientation="VERTICAL" styleClass="separator--secondary" />
+                                          <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                             <children>
+                                                <Label text="All Activities" />
+                                                <ToggleSwitch fx:id="showAllActivitiesToggle" />
+                                             </children>
+                                          </HBox>
+                                          <Separator orientation="VERTICAL" styleClass="separator--secondary" />
+                                          <HBox fx:id="alternativeLayoutHbox" alignment="CENTER_RIGHT" spacing="10.0">
+                                             <children>
+                                                <Label text="Alternative Layout" />
+                                                <ToggleSwitch fx:id="alternativeLayoutToggle" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </FlowPane>
+                        <WebView fx:id="visualizationWebView" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </WebView>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

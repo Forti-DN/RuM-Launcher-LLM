@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.generation.GenerationPageController">
+   <children>
+      <HBox styleClass="header__layout">
+         <children>
+            <Label styleClass="header__title" text="Log Generation" />
+            <Button mnemonicParsing="false" onAction="#openModel" styleClass="header__button" text="Open MP-Declare Model">
+               <graphic>
+                  <FontIcon iconLiteral="typ-document" styleClass="header__icon" wrappingWidth="30.0" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="introLabel" styleClass="page-intro-label" text="Click &quot;Open MP-Declare Model&quot; to get started with log generation" VBox.vgrow="ALWAYS" />
+      <TabPane fx:id="generationTabPane" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

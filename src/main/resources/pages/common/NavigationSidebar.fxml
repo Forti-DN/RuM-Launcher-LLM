@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="rootRegion" maxWidth="-Infinity" minWidth="-Infinity" styleClass="primary-nav" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.common.NavigationSidebarController">
+   <children>
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openStartPage" text="RuM">
+         <graphic>
+            <ImageView fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/pickaxe.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--title" />
+         </styleClass>
+      </Button>
+      <Region prefHeight="100.0" />
+      <Button fx:id="discoveryButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openDiscovery" text="Discovery">
+         <graphic>
+            <FontIcon iconLiteral="typ-lightbulb" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Button fx:id="conformanceButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openConformance" text="Conformance Checking">
+         <graphic>
+            <FontIcon iconLiteral="typ-tick" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Button fx:id="generationButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openGeneration" text="Log Generation">
+         <graphic>
+            <FontIcon iconLiteral="typ-book" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Button fx:id="editorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openEditor" text="MP-Declare Editor">
+         <graphic>
+            <FontIcon iconLiteral="typ-edit" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Button fx:id="monitoringButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openMonitoring" text="Monitoring">
+         <graphic>
+            <FontIcon iconLiteral="fa-area-chart" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Button fx:id="filteringButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openFiltering" text="Filtering">
+         <graphic>
+            <FontIcon iconLiteral="fa-search" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Region prefHeight="250.0" VBox.vgrow="ALWAYS" />
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openInventory" text="Inventory">
+         <graphic>
+            <FontIcon iconLiteral="fa-cube" styleClass="primary-nav__icon" wrappingWidth="35.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+      <Region layoutX="10.0" layoutY="85.0" maxHeight="10.0" minHeight="10.0" />
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleMinimize" text="Minimize">
+         <graphic>
+            <FontIcon fx:id="minimizeIcon" iconLiteral="fa-angle-double-left" styleClass="primary-nav__icon" textAlignment="CENTER" wrappingWidth="30.0" />
+         </graphic>
+         <styleClass>
+            <String fx:value="primary-nav__button" />
+            <String fx:value="primary-nav__button--menu" />
+         </styleClass>
+      </Button>
+   </children>
+</VBox>

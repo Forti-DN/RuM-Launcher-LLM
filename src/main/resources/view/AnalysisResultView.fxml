@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="893.0" prefWidth="981.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="analysisResultView" layoutX="-8.0" layoutY="-6.0" prefHeight="447.0" prefWidth="488.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="constraintColumn" minWidth="0.0" prefWidth="550.0" text="Constraint" />
+          <TableColumn fx:id="activationColumn" minWidth="0.0" prefWidth="145.0" text="Activations" />
+            <TableColumn fx:id="fulfillmentColumn" minWidth="0.0" prefWidth="134.0" text="Fulfillments" />
+            <TableColumn fx:id="violationColumn" minWidth="0.0" prefWidth="151.0" text="Violations" />
+        </columns>
+      </TableView>
+   </children>
+</fx:root>

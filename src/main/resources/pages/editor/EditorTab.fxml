@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import org.controlsfx.control.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<StackPane fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.editor.EditorTabController">
+   <children>
+      <HBox fx:id="mainContents">
+         <children>
+            <StackPane alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox>
+                     <children>
+                        <BorderPane>
+                           <center>
+                              <VBox prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="200.0">
+                                       <children>
+                                          <Label prefHeight="0.0" prefWidth="83.0" text="Enable Groq " />
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                          <ToggleSwitch fx:id="enableGroqToggle" prefHeight="20.0" prefWidth="37.0" selected="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <top>
+                              <Pane prefHeight="14.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </top>
+                           <right>
+                              <Pane prefHeight="0.0" prefWidth="14.0" BorderPane.alignment="CENTER" />
+                           </right>
+                           <bottom>
+                              <Pane prefHeight="15.0" prefWidth="214.0" BorderPane.alignment="CENTER" />
+                           </bottom>
+                        </BorderPane>
+                        <Separator prefHeight="14.0" prefWidth="200.0" />
+                        <VBox fx:id="activitiesVBox" prefHeight="222.0" prefWidth="200.0">
+                           <children>
+                              <TitledPane fx:id="voiceInputPane" expanded="false" layoutX="30.0" layoutY="100.0" prefHeight="26.0" prefWidth="139.0" styleClass="parameters-pane" text="Voice &amp; Text Input">
+                                 <VBox.margin>
+                                    <Insets top="14.0" />
+                                 </VBox.margin>
+                              </TitledPane>
+                              <TitledPane fx:id="activitiesAttributesPane" layoutX="30.0" layoutY="96.0" styleClass="parameters-pane" text="Activities &amp; Attributes">
+                                 <content>
+                                    <VBox styleClass="parameters-pane__content-box--scroll">
+                                       <children>
+                                          <TreeView fx:id="activitiesTreeView" prefHeight="40.0" />
+                                          <Button fx:id="editNewActivityButton" mnemonicParsing="false" onAction="#editNewActivity" styleClass="selection-button" text="Add activities">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="editNewAttributeButton" layoutX="173.0" layoutY="75.0" mnemonicParsing="false" onAction="#editNewAttribute" styleClass="selection-button" text="Add attributes">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="section-box" />
+                              <String fx:value="section-box--main-parameters" />
+                           </styleClass>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <Separator orientation="VERTICAL" styleClass="separator--primary" />
+            <StackPane fx:id="editorSidePanelLayer" alignment="CENTER_LEFT" onMouseClicked="#hideSidePanel" HBox.hgrow="ALWAYS">
+               <children>
+                  <SplitPane fx:id="editorSplitPane" dividerPositions="0.5" orientation="VERTICAL">
+                     <items>
+                        <VBox styleClass="section-box">
+                           <children>
+                              <HBox spacing="15.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="section-box__title" text="Visualization" HBox.hgrow="ALWAYS" />
+                                    <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
+                                       <children>
+                                          <Label text="Zoom" />
+                                          <Slider fx:id="zoomSlider" blockIncrement="0.1" max="4.0" value="1.0" />
+                                          <HBox alignment="CENTER_LEFT" prefWidth="45.0" styleClass="percentage-box">
+                                             <children>
+                                                <TextField fx:id="zoomValueField" alignment="CENTER_RIGHT" maxWidth="34.0" style="-fx-background-color: transparent;" text="100.0">
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" top="2.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Label text="\%" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="View model as:" />
+                                          <ChoiceBox fx:id="modelViewChoiceBox" maxHeight="30.0" prefWidth="100.0" styleClass="standard-choice-box" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="saveButtonsHbox" alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Button maxHeight="30.0" mnemonicParsing="false" onAction="#exportModel" styleClass="standard-button" text="Export">
+                                             <graphic>
+                                                <FontIcon iconLiteral="typ-export" styleClass="standard-button__icon" />
+                                             </graphic>
+                                          </Button>
+                                       	<Button maxHeight="30.0" mnemonicParsing="false" onAction="#takeScreenshot" styleClass="standard-button" text="Screenshot">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fa-photo" styleClass="standard-button__icon" />
+                                             </graphic>
+                                          </Button>
+                                          <Button maxHeight="30.0" mnemonicParsing="false" onAction="#takeSnapshot" styleClass="standard-button" text="Snapshot">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fa-cube" styleClass="standard-button__icon" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <Separator styleClass="separator--secondary">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Separator>
+                              <HBox fx:id="showLabelsHBox" alignment="CENTER_LEFT" maxHeight="30.0" spacing="10.0">
+                                 <children>
+                                    <Label styleClass="section-box__subtitle" text="Show:" />
+                                    <HBox spacing="20.0">
+                                       <children>
+                                          <HBox fx:id="constraintLabelsHBox" alignment="CENTER_LEFT" spacing="10.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                                                   <children>
+                                                      <Label text="Constraint Labels" />
+                                                      <ToggleSwitch fx:id="constraintLabelsToggle" selected="true" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                             <children>
+                                                <Label text="Condition Labels" />
+                                                <ToggleSwitch fx:id="conditionLabelsToggle" selected="true" />
+                                             </children>
+                                          </HBox>
+                                          <Separator orientation="VERTICAL" styleClass="separator--secondary" />
+                                          <HBox fx:id="alternativeLayoutHbox" alignment="CENTER_RIGHT" spacing="10.0">
+                                             <children>
+                                                <Label text="Alternative Layout" />
+                                                <ToggleSwitch fx:id="alternativeLayoutToggle" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <WebView fx:id="visualizationWebView" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </WebView>
+                           </children>
+                        </VBox>
+                        <VBox styleClass="section-box">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label styleClass="section-box__title" text="Constraints" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="checkConsistencyButton" maxHeight="30.0" mnemonicParsing="false" onAction="#checkConsistency" styleClass="standard-button" text="Check Consistency" />
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="constraintsTable" minHeight="63.0" prefHeight="63.0" styleClass="hidden-scroll-bar--horizontal">
+                                <columns>
+                                  <TableColumn fx:id="templateColumn" minWidth="50.0" prefWidth="75.0" text="Template" />
+                                  <TableColumn fx:id="activationActivityColumn" minWidth="50.0" prefWidth="75.0" text="Activation (A)" />
+                                  <TableColumn fx:id="activationConditionColumn" minWidth="50.0" prefWidth="75.0">
+                                     <graphic>
+                                        <Label contentDisplay="RIGHT" text="Activation Condition">
+                                           <graphic>
+                                              <FontIcon fx:id="activationConditionHelpIcon" iconLiteral="fa-question-circle" styleClass="help-icon" />
+                                           </graphic>
+                                        </Label>
+                                     </graphic>
+                                  </TableColumn>
+                                  <TableColumn fx:id="targetActivityColumn" minWidth="50.0" prefWidth="75.0" text="Target (B)" />
+                                  <TableColumn fx:id="correlationConditionColumn" minWidth="50.0" prefWidth="75.0">
+                                     <graphic>
+                                        <Label contentDisplay="RIGHT" text="Correlation Condition">
+                                           <graphic>
+                                              <FontIcon fx:id="correlationConditionHelpIcon" iconLiteral="fa-question-circle" styleClass="help-icon" />
+                                           </graphic>
+                                        </Label>
+                                     </graphic>
+                                    </TableColumn>
+                                  <TableColumn fx:id="timeConditionColumn" minWidth="50.0" prefWidth="75.0">
+                                     <graphic>
+                                        <Label contentDisplay="RIGHT" text="Time Condition">
+                                           <graphic>
+                                              <FontIcon fx:id="timeConditionHelpIcon" iconLiteral="fa-question-circle" styleClass="help-icon" />
+                                           </graphic>
+                                        </Label>
+                                     </graphic>
+                                    </TableColumn>
+                                  <TableColumn fx:id="constraintRowActionsColumn" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" sortable="false" styleClass="action-column" text="Row Actions" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox styleClass="buttons-group--secondary">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#addConstraint" styleClass="selection-button" text="Add constraint">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fa-plus" styleClass="selection-button__icon" />
+                                       </graphic>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </items>
+                  </SplitPane>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

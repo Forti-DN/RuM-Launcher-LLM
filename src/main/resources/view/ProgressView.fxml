@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="478.0" prefWidth="647.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="operationName" layoutX="303.0" layoutY="133.0" text="Label" />
+      <ProgressIndicator fx:id="progress" layoutX="272.0" layoutY="185.0" prefHeight="82.0" prefWidth="105.0" />
+      <Button fx:id="cancelOperation" layoutX="556.0" layoutY="14.0" mnemonicParsing="false" text="Cancel" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+   </children>
+</fx:root>

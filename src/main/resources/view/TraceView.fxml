@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+
+<fx:root fx:id="mainPane" hbarPolicy="ALWAYS" prefHeight="600.0" prefWidth="951.0" type="ScrollPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <Pane fx:id="tracePane" prefHeight="600.0" prefWidth="1200.0">
+         <children>
+            <Pane fx:id="element" layoutX="100.0" layoutY="25.0" prefHeight="135.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-width: 2;">
+               <children>
+                  <Label fx:id="elementLabel" layoutX="5.0" layoutY="5.0" prefHeight="125.0" prefWidth="390.0" style="-fx-text-alignment: center; -fx-alignment: center; -fx-font-weight: bold; -fx-font-size: 20;" text="Label" wrapText="true" />
+               </children>
+            </Pane>
+            <Line fx:id="arrowBody" endX="300.0" endY="210.0" startX="300.0" startY="160.0" strokeWidth="3.0" />
+            <Line fx:id="arrowLeft" endX="290.0" endY="200.0" startX="300.0" startY="210.0" strokeWidth="3.0" />
+            <Line fx:id="arrowRight" endX="310.0" endY="200.0" startX="300.0" startY="210.0" strokeWidth="3.0" />
+            <Line fx:id="attributeLine" endX="550.0" endY="65.0" startX="500.0" startY="65.0" strokeWidth="2.0" />
+            <VBox fx:id="attributes" layoutX="551.0" layoutY="23.0" prefHeight="212.0" prefWidth="300.0" style="-fx-border-color: black; -fx-background-color: white;" />
+            <Label fx:id="indexLabel" layoutX="40.0" layoutY="25.0" prefHeight="37.0" prefWidth="60.0" style="-fx-border-radius: 5; -fx-background-color: black; -fx-text-fill: white; -fx-alignment: center;" text="1">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </Pane>
+   </content>
+</fx:root>
