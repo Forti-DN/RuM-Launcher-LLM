@@ -1,10 +1,17 @@
 # RuM
 
+## Premise:
+
+RuM Launcher LLM is a fork based on the following repository https://bitbucket.org/doorless1634/thesis/src/master/
+My aim was to overhaul the Declare Editor and his chatbot Declo by integrating LLM functionalities to the system.
+
+To use the Declare Editor as intended, an Api developed by me is required and can be found at the following link https://github.com/Forti-DN/RuM-LLM-API/releases/tag/v1.0.0 , else most of the new functionalities will not work.
+
 ### Requirements:
 
 - Java JDK 11
 
-- Minimum resolution: 1280×720
+- Minimum resolution: 1280Ã—720
 
 ### Notes:
 
