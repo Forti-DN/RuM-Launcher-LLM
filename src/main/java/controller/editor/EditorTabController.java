@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -115,6 +116,8 @@ public class EditorTabController extends AbstractController {
 	private final PseudoClass selectedClass = PseudoClass.getPseudoClass("selected");
 
 	@FXML
+	private HBox groqHbox;
+	@FXML
 	private VBox activitiesVBox;
 	@FXML
 	private TitledPane voiceInputPane;
@@ -205,6 +208,12 @@ public class EditorTabController extends AbstractController {
 	@FXML
 	private void initialize() {
 		activitiesVBox.setViewOrder(-1); //Makes sure that editing panels slide in from under the activities overview
+		
+		if (!Objects.equals(System.getProperty("RumDebug"), "true")) {
+			groqHbox.setVisible(false);
+			groqHbox.setDisable(true);
+			groqHbox.setManaged(false);
+		}
 
 		VoiceInputChatBox voiceInputChatBox = new VoiceInputChatBox();
 		voiceInputChatBox.setEditorTabController(this);
@@ -302,6 +311,7 @@ public class EditorTabController extends AbstractController {
 
 	private boolean isValidAPIKey;
 	private boolean isGroqToggleEnabled;
+	
 
 	public void askForAPIKey(){
 		enableGroqToggle.setDisable(true);
@@ -314,21 +324,22 @@ public class EditorTabController extends AbstractController {
 		pane.setHgap(10);
 		pane.setPadding(new Insets(10,10,10,10));
 
-		Scene scene = new Scene(pane, 300,100);
+		Scene scene = new Scene(pane, 350,50);
 		TextField textField = new TextField();
 		textField.setFont(Font.font("Arial"));
+		textField.setPrefWidth(250);
 		pane.add(textField, 0,0);
+		scene.getStylesheets().add("dialogPane.css");
 
-		Button button = new Button("send");
+		Button button = new Button("Send");
 		button.setFont(Font.font("Arial"));
 		pane.add(button, 1,0);
 
 		Stage stage = new Stage();
 
 		stage.setScene(scene);
-		stage.setTitle("Please insert the API Key");
+		stage.setTitle("Please insert the Groq API Key");
 		stage.setResizable(false);
-		stage.show();
 
 		button.setOnAction(event -> {
 			String newAPIKey = textField.getText();
@@ -350,6 +361,8 @@ public class EditorTabController extends AbstractController {
 				enableGroqToggle.setSelected(false);
 			});
 		}
+		
+		stage.showAndWait();
 	}
 
 	public void setIsValidAPIKey(boolean validAPIKey){

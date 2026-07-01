@@ -1,82 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.web.*?>
-<?import org.controlsfx.control.*?>
-<?import org.kordamp.ikonli.javafx.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<StackPane fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.editor.EditorTabController">
+<StackPane fx:id="rootRegion" styleClass="standard-bg-color" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.editor.EditorTabController">
    <children>
       <HBox fx:id="mainContents">
          <children>
-            <StackPane alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <VBox fx:id="activitiesVBox" prefHeight="400.0" prefWidth="200.0">
                <children>
-                  <VBox>
+                  <HBox fx:id="groqHbox" alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="200.0" spacing="4.0">
                      <children>
-                        <BorderPane>
-                           <center>
-                              <VBox prefHeight="0.0" prefWidth="200.0">
-                                 <children>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="200.0">
-                                       <children>
-                                          <Label prefHeight="0.0" prefWidth="83.0" text="Enable Groq " />
-                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-                                          <ToggleSwitch fx:id="enableGroqToggle" prefHeight="20.0" prefWidth="37.0" selected="false" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </center>
-                           <top>
-                              <Pane prefHeight="14.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                           </top>
-                           <right>
-                              <Pane prefHeight="0.0" prefWidth="14.0" BorderPane.alignment="CENTER" />
-                           </right>
-                           <bottom>
-                              <Pane prefHeight="15.0" prefWidth="214.0" BorderPane.alignment="CENTER" />
-                           </bottom>
-                        </BorderPane>
-                        <Separator prefHeight="14.0" prefWidth="200.0" />
-                        <VBox fx:id="activitiesVBox" prefHeight="222.0" prefWidth="200.0">
-                           <children>
-                              <TitledPane fx:id="voiceInputPane" expanded="false" layoutX="30.0" layoutY="100.0" prefHeight="26.0" prefWidth="139.0" styleClass="parameters-pane" text="Voice &amp; Text Input">
-                                 <VBox.margin>
-                                    <Insets top="14.0" />
-                                 </VBox.margin>
-                              </TitledPane>
-                              <TitledPane fx:id="activitiesAttributesPane" layoutX="30.0" layoutY="96.0" styleClass="parameters-pane" text="Activities &amp; Attributes">
-                                 <content>
-                                    <VBox styleClass="parameters-pane__content-box--scroll">
-                                       <children>
-                                          <TreeView fx:id="activitiesTreeView" prefHeight="40.0" />
-                                          <Button fx:id="editNewActivityButton" mnemonicParsing="false" onAction="#editNewActivity" styleClass="selection-button" text="Add activities">
-                                             <graphic>
-                                                <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
-                                             </graphic>
-                                          </Button>
-                                          <Button fx:id="editNewAttributeButton" layoutX="173.0" layoutY="75.0" mnemonicParsing="false" onAction="#editNewAttribute" styleClass="selection-button" text="Add attributes">
-                                             <graphic>
-                                                <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </VBox>
-                                 </content>
-                              </TitledPane>
-                           </children>
-                           <styleClass>
-                              <String fx:value="section-box" />
-                              <String fx:value="section-box--main-parameters" />
-                           </styleClass>
-                        </VBox>
+                        <Label text="Use an online LLM via Groq " />
+                        <ToggleSwitch fx:id="enableGroqToggle" prefHeight="20.0" prefWidth="37.0" selected="false" />
                      </children>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <TitledPane fx:id="voiceInputPane" layoutX="30.0" layoutY="100.0" prefWidth="139.0" styleClass="parameters-pane" text="LLM Model Editor">
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </TitledPane>
+                  <TitledPane fx:id="activitiesAttributesPane" layoutX="30.0" layoutY="96.0" styleClass="parameters-pane" text="Activities &amp; Attributes">
+                     <content>
+                        <VBox styleClass="parameters-pane__content-box--scroll">
+                           <children>
+                              <TreeView fx:id="activitiesTreeView" prefHeight="40.0" />
+                              <Button fx:id="editNewActivityButton" mnemonicParsing="false" onAction="#editNewActivity" styleClass="selection-button" text="Add activities">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="editNewAttributeButton" layoutX="173.0" layoutY="75.0" mnemonicParsing="false" onAction="#editNewAttribute" styleClass="selection-button" text="Add attributes">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-angle-double-right" styleClass="selection-button__icon" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
                </children>
-            </StackPane>
+               <styleClass>
+                  <String fx:value="section-box" />
+                  <String fx:value="section-box--main-parameters" />
+               </styleClass>
+            </VBox>
             <Separator orientation="VERTICAL" styleClass="separator--primary" />
             <StackPane fx:id="editorSidePanelLayer" alignment="CENTER_LEFT" onMouseClicked="#hideSidePanel" HBox.hgrow="ALWAYS">
                <children>

@@ -74,7 +74,13 @@ public class VoiceInputChatBox {
 
 	private void writeIntroduction() {
 		writeSystemMessage("Hi! I am Declo", false);
-		writeSystemMessage("Ask me what you need, I can help you create a model or answer any question you have!", false);
+		writeSystemMessage("I can help you create a Declare model!", false);
+	}
+	
+	private void writeInstructions() {
+		writeSystemMessage("You can select a text file or describe the process in your own words.", false);
+		writeSystemMessage("I will update the model after you confirm the constraints.", false);
+		//writeSystemMessage("Note that I work much faster with an online LLM via Groq.", false);
 	}
 
 	private void writeSystemMessage(String message, boolean italic) {
@@ -108,7 +114,7 @@ public class VoiceInputChatBox {
 
 	private void createConstraintInputRow() {
 		HBox messageRow = createUserMessageRow();
-		Button chatButton = createChatButton("Let's chat", messageRow);
+		Button chatButton = createChatButton("Let's start!", messageRow);
 		messageRow.getChildren().setAll(chatButton);
 	}
 
@@ -175,7 +181,7 @@ public class VoiceInputChatBox {
 	}
 
 	private ChatForm formSetup(){
-		ChatForm chatForm = new ChatForm(new TextArea(null), new Button("select File"), new Button("send"), new Button("confirm"));
+		ChatForm chatForm = new ChatForm(new TextArea(null), new Button("Select File"), new Button("Send"), new Button("Confirm"));
 		chatForm.getEditInput().setStyle("-fx-max-height: 60px;");
 		chatForm.getEditInput().setWrapText(true);
 
@@ -455,11 +461,27 @@ public class VoiceInputChatBox {
 		FontIcon buttonFontIcon = new FontIcon("fa-pencil");
 		buttonFontIcon.getStyleClass().add("small-button__icon");
 		button.setGraphic(buttonFontIcon);
+		
+		if (Objects.equals(System.getProperty("RumDebug"), "true")) {
+			button.setOnAction(event -> {
+				updateUserMessage(buttonText, messageRow, false);
+				askForTextualQuery();
+			});
+		} else {
+			button.setOnAction(event -> {
+				button.setDisable(true);
+				editorTabController.askForAPIKey();
+				if (editorTabController.getIsValidAPIKey()) {
+					updateUserMessage(buttonText, messageRow, false);
+					writeInstructions();
+					askForTextualQuery();	
+				} else {
+					button.setDisable(false);
+				}
+			});
+		}
 
-		button.setOnAction(event -> {
-			updateUserMessage(buttonText, messageRow, false);
-			askForTextualQuery();
-		});
+		
 
         return button;
     }
